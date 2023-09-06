@@ -1,0 +1,45 @@
+package academy.mindswap.orderservice.controller;
+
+import academy.mindswap.orderservice.model.Order;
+import academy.mindswap.orderservice.service.OrderService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/api/orders")
+public class OrderController {
+
+    private OrderService orderService;
+
+    @GetMapping
+    public Flux<Order> list() {
+        return orderService.listAll();
+    }
+
+    @GetMapping
+    @RequestMapping("/{id}")
+    public Mono<Order> get(@PathVariable Long id) {
+        return orderService.get(id);
+    }
+
+    @PostMapping
+    public Mono<Order> create(Order order) {
+        return orderService.create(order);
+    }
+
+    @PutMapping
+    @RequestMapping("/{id}")
+    public Mono<Order> update(@PathVariable Long id, Order order) {
+        return orderService.update(id, order);
+    }
+
+    @DeleteMapping
+    @RequestMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        orderService.delete(id);
+    }
+
+}
