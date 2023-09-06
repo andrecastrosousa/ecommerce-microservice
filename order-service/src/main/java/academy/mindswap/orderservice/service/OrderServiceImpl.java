@@ -1,4 +1,4 @@
-package academy.mindswap.orderservice;
+package academy.mindswap.orderservice.service;
 
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.repository.OrderRepository;

@@ -1,4 +1,4 @@
-package academy.mindswap.orderservice.service;
+package academy.mindswap.orderservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
