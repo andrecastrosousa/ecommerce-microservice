@@ -10,7 +10,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Table("order")
+@Table("orders")
 public class Order {
 
     @Id

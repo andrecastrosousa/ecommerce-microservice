@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>740</IntrospectionStateNumber>
+      <IntrospectionStateNumber>739</IntrospectionStateNumber>
       <ServerVersion>14.9</ServerVersion>
-      <StartupTime>1694102559</StartupTime>
+      <StartupTime>1694102747</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -803,7 +803,7 @@ true posixrules
 13411||10|C|G
 13411||-9223372036854775808|U|G
 13411||10|U|G</Grants>
-      <IntrospectionStateNumber>740</IntrospectionStateNumber>
+      <IntrospectionStateNumber>739</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>root</OwnerName>
     </database>
@@ -4233,65 +4233,185 @@ true posixrules
     <schema id="262" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>740</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2023-09-07.16:05:04.619</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-09-07.16:05:05</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>739</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2023-09-07.16:05:53.432</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-09-07.16:05:53</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>root</OwnerName>
     </schema>
-    <sequence id="263" parent="262" name="item_id_seq">
+    <sequence id="263" parent="262" name="items_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>24576</ObjectId>
+      <ObjectId>16385</ObjectId>
+      <SequenceIdentity>1(1)</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>735</StateNumber>
+      <OwnerName>root</OwnerName>
+    </sequence>
+    <sequence id="264" parent="262" name="order_items_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>16399</ObjectId>
       <SequenceIdentity>1(1)</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>737</StateNumber>
       <OwnerName>root</OwnerName>
     </sequence>
-    <table id="264" parent="262" name="item">
-      <ObjectId>24577</ObjectId>
+    <sequence id="265" parent="262" name="orders_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>16392</ObjectId>
+      <SequenceIdentity>1(1)</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>736</StateNumber>
+      <OwnerName>root</OwnerName>
+    </sequence>
+    <table id="266" parent="262" name="items">
+      <ObjectId>16386</ObjectId>
       <StateNumber>737</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>root</OwnerName>
     </table>
-    <column id="265" parent="264" name="id">
+    <table id="267" parent="262" name="order_items">
+      <ObjectId>16400</ObjectId>
+      <StateNumber>737</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>root</OwnerName>
+    </table>
+    <table id="268" parent="262" name="orders">
+      <ObjectId>16393</ObjectId>
+      <StateNumber>737</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>root</OwnerName>
+    </table>
+    <column id="269" parent="266" name="id">
       <DasType>integer|0s</DasType>
-      <DefaultExpression>nextval(&apos;item_id_seq&apos;::regclass)</DefaultExpression>
+      <DefaultExpression>nextval(&apos;items_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>737</StateNumber>
-      <SequenceId>24576</SequenceId>
+      <StateNumber>735</StateNumber>
+      <SequenceId>16385</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="266" parent="264" name="name">
+    <column id="270" parent="266" name="name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>737</StateNumber>
+      <StateNumber>735</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="267" parent="264" name="price">
+    <column id="271" parent="266" name="price">
       <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>737</StateNumber>
+      <StateNumber>735</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <index id="268" parent="264" name="item_pkey">
+    <index id="272" parent="266" name="items_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24581</ObjectId>
+      <ObjectId>16390</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>735</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="273" parent="266" name="items_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16391</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>735</StateNumber>
+      <UnderlyingIndexId>16390</UnderlyingIndexId>
+    </key>
+    <column id="274" parent="267" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;order_items_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>737</StateNumber>
+      <SequenceId>16399</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="275" parent="267" name="order_id">
+      <DasType>integer|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="276" parent="267" name="item_id">
+      <DasType>integer|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="277" parent="267" name="quantity">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="278" parent="267" name="order_items_order_id_fkey">
+      <ColNames>order_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16406</ObjectId>
+      <StateNumber>737</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16393</RefTableId>
+    </foreign-key>
+    <foreign-key id="279" parent="267" name="order_items_item_id_fkey">
+      <ColNames>item_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16411</ObjectId>
+      <StateNumber>737</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16386</RefTableId>
+    </foreign-key>
+    <index id="280" parent="267" name="order_items_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16404</ObjectId>
       <Primary>1</Primary>
       <StateNumber>737</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="269" parent="264" name="item_pkey">
+    <key id="281" parent="267" name="order_items_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24582</ObjectId>
+      <ObjectId>16405</ObjectId>
       <Primary>1</Primary>
       <StateNumber>737</StateNumber>
-      <UnderlyingIndexId>24581</UnderlyingIndexId>
+      <UnderlyingIndexId>16404</UnderlyingIndexId>
+    </key>
+    <column id="282" parent="268" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;orders_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>736</StateNumber>
+      <SequenceId>16392</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="283" parent="268" name="total">
+      <DasType>double precision|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>736</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <index id="284" parent="268" name="orders_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16397</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>736</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="285" parent="268" name="orders_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16398</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>736</StateNumber>
+      <UnderlyingIndexId>16397</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

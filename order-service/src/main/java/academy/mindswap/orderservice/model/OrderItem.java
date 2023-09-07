@@ -8,7 +8,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Getter
 @Setter
-@Table("order_item")
+@Table("order_items")
 public class OrderItem {
     @Id
     private Long id;
