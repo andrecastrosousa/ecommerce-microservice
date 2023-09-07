@@ -13,5 +13,5 @@ public interface OrderService {
 
     Mono<Order> create(Order order);
 
-    void delete(Long id);
+    Mono<Void> delete(Long id);
 }

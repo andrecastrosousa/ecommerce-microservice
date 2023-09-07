@@ -43,10 +43,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void delete(Long id) {
-        orderRepository.findById(id)
-                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND)))
-                .flatMap(orderRepository::delete);
-
+    public Mono<Void> delete(Long id) {
+        return orderRepository.deleteById(id);
     }
 }

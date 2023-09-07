@@ -35,8 +35,8 @@ public class OrderController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        orderService.delete(id);
+    public Mono<Void> delete(@PathVariable Long id) {
+        return orderService.delete(id);
     }
 
 }
