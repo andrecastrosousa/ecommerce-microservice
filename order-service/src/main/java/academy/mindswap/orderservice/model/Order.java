@@ -1,23 +1,24 @@
 package academy.mindswap.orderservice.model;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
+@Table("order")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private double total;
 
-    @OneToMany(mappedBy = "order")
+    @Transient
     private List<OrderItem> orderItemList;
 
     public OrderBuilder builder() {
