@@ -10,3 +10,10 @@ services:
       POSTGRES_USER: "root"
     volumes:
       - ./init_postgres.sql:/docker-entrypoint-initdb.d/init_postgres.sql
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: 'Catalog'

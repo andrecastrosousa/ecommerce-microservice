@@ -28,12 +28,12 @@ public class CatalogController {
     }
 
     @PostMapping
-    public Mono<Item> create(ItemCreateDto itemCreateDto) {
+    public Mono<Item> create(@RequestBody ItemCreateDto itemCreateDto) {
         return catalogService.create(itemCreateDto);
     }
 
     @PutMapping("/{id}")
-    public Mono<Item> update(@PathVariable ObjectId id, ItemUpdateDto itemUpdateDto) {
+    public Mono<Item> update(@PathVariable ObjectId id, @RequestBody ItemUpdateDto itemUpdateDto) {
         return catalogService.update(id, itemUpdateDto);
     }
 

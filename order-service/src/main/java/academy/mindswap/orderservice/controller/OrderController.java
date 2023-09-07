@@ -25,12 +25,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public Mono<Order> create(Order order) {
+    public Mono<Order> create(@RequestBody Order order) {
         return orderService.create(order);
     }
 
     @PutMapping("/{id}")
-    public Mono<Order> update(@PathVariable Long id, Order order) {
+    public Mono<Order> update(@PathVariable Long id, @RequestBody Order order) {
         return orderService.update(id, order);
     }
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Catalog@localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.49">
+    <root id="1">
+      <ServerVersion>7.0.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="catalog">
+      <LocalIntrospectionTimestamp>2023-09-07.17:57:32</LocalIntrospectionTimestamp>
+    </schema>
+    <schema id="4" parent="1" name="config"/>
+    <schema id="5" parent="1" name="local"/>
+    <table id="6" parent="3" name="item"/>
+    <column id="7" parent="6" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="8" parent="6" name="_class">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="9" parent="6" name="price">
+      <DasType>Double|8s</DasType>
+      <Position>3</Position>
+    </column>
+  </database-model>
+</dataSource>
