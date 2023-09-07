@@ -12,15 +12,14 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/api/orders")
 public class OrderController {
 
-    private OrderService orderService;
+    private final OrderService orderService;
 
     @GetMapping
     public Flux<Order> list() {
         return orderService.listAll();
     }
 
-    @GetMapping
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public Mono<Order> get(@PathVariable Long id) {
         return orderService.get(id);
     }
@@ -30,14 +29,12 @@ public class OrderController {
         return orderService.create(order);
     }
 
-    @PutMapping
-    @RequestMapping("/{id}")
+    @PutMapping("/{id}")
     public Mono<Order> update(@PathVariable Long id, Order order) {
         return orderService.update(id, order);
     }
 
-    @DeleteMapping
-    @RequestMapping("/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         orderService.delete(id);
     }

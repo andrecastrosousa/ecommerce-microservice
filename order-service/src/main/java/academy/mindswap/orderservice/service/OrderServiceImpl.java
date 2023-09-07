@@ -2,9 +2,11 @@ package academy.mindswap.orderservice.service;
 
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.repository.OrderRepository;
-import academy.mindswap.orderservice.service.OrderService;
+import academy.mindswap.orderservice.utils.Messages;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -12,7 +14,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     @Override
     public Flux<Order> listAll() {
@@ -21,13 +23,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Mono<Order> get(Long id) {
-        return orderRepository.findById(id);
+        return orderRepository.findById(id)
+                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND)));
     }
 
     @Override
     public Mono<Order> update(Long id, Order order) {
         return orderRepository.findById(id)
-                .switchIfEmpty(Mono.error(new Exception()))
+                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND)))
                 .flatMap(order1 -> {
                     order1.setTotal(order.getTotal());
                     return orderRepository.save(order1);
@@ -42,7 +45,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void delete(Long id) {
         orderRepository.findById(id)
-                .flatMap(order -> orderRepository.delete(order));
+                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND)))
+                .flatMap(orderRepository::delete);
 
     }
 }

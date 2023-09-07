@@ -3,7 +3,6 @@ package academy.mindswap.orderservice.controller;
 import academy.mindswap.orderservice.OrderServiceApplication;
 import academy.mindswap.orderservice.dto.OrderCreateDto;
 import academy.mindswap.orderservice.repository.OrderRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
@@ -25,7 +24,6 @@ public class OrderResourceTest {
     OrderCreateDto orderCreateDto = new OrderCreateDto();
 
     @BeforeEach
-    @Transactional
     public void before() {
         /*orderItemRepository.deleteAll();
         itemRepository.deleteAll();

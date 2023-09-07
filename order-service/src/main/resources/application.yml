@@ -1,8 +1,8 @@
 spring:
     r2dbc:
-        url: r2dbc:postgresql://172.17.0.2:5432/postgres?schema=orders
+        url: r2dbc:postgresql://127.0.0.1:5432/orders
         username: root
-        password: test
+        password: 123
     jpa:
         hibernate:
             ddl-auto: create
