@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -16,8 +17,9 @@ import static org.hamcrest.Matchers.is;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes={OrderServiceApplication.class}, webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
 @RequiredArgsConstructor
-public class OrderResourceTest {
+public class OrderResourceIntegrationTest {
     // OrderItemRepository orderItemRepository;
+    @Autowired
     OrderRepository orderRepository;
     // ItemRepository itemRepository;
     // OrderConverter orderConverter;
@@ -45,18 +47,18 @@ public class OrderResourceTest {
     class OrderCrudValidator {
         @Test
         @DisplayName("Get an order not founded")
-        public void getOrderNotFound() {
+        void getOrderNotFound() {
             given()
-                    .get("/api/orders/2")
+                    .get("/api/orders/10")
                     .then()
                     .statusCode(HttpStatus.SC_NOT_FOUND);
         }
 
         @Test
         @DisplayName("Delete an order not founded")
-        public void deleteOrderNotFound() {
+        void deleteOrderNotFound() {
             given()
-                    .delete("/api/orders/2")
+                    .delete("/api/orders/10")
                     .then()
                     .statusCode(HttpStatus.SC_NOT_FOUND);
         }
@@ -68,7 +70,7 @@ public class OrderResourceTest {
     class ItemCrudTests {
         @Test
         @DisplayName("Create an order and associate to a user")
-        public void post() {
+        void post() {
             given()
                     .header("Content-Type", "application/json")
                     .body(orderCreateDto)
@@ -76,13 +78,13 @@ public class OrderResourceTest {
                     .post("/api/orders")
                     .then()
                     .statusCode(HttpStatus.SC_OK)
-                    .body("id", is(2))
+                    .body("id", is(1))
                     .body("total", is(0.0F));
         }
 
         @Test
         @DisplayName("Get a list of orders associated to user")
-        public void getOrders() {
+        void getOrders() {
             given()
                     .get("/api/orders")
                     .then()
@@ -92,7 +94,7 @@ public class OrderResourceTest {
 
         @Test
         @DisplayName("Delete an orders associated to a user")
-        public void deleteOrder() {
+        void deleteOrder() {
             given()
                     .delete("/api/orders/1")
                     .then()
