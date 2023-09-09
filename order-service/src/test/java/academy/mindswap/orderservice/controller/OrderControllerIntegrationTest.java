@@ -16,8 +16,7 @@ import static org.hamcrest.Matchers.is;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes={OrderServiceApplication.class}, webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
-@RequiredArgsConstructor
-public class OrderResourceIntegrationTest {
+public class OrderControllerIntegrationTest {
     // OrderItemRepository orderItemRepository;
     @Autowired
     OrderRepository orderRepository;
