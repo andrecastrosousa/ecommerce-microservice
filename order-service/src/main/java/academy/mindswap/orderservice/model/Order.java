@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -20,6 +21,21 @@ public class Order {
 
     @Transient
     private List<OrderItem> orderItemList;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Double.compare(total, order.total) == 0
+                && Objects.equals(id, order.id)
+                && Objects.equals(orderItemList, order.orderItemList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, total, orderItemList);
+    }
 
     public OrderBuilder builder() {
         return new OrderBuilder();

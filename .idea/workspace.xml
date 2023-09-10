@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6f18d20-4d7b-476f-b967-c57b31380e6a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9730a2f2-db96-436c-8799-dc460c21030d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9730a2f2-db96-436c-8799-dc460c21030d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1a06fa7-5a88-46c4-abaf-e416fbc17adb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d1a06fa7-5a88-46c4-abaf-e416fbc17adb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/9/39680423a125f1e01eca48e30cda2ede6e2a7472" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec97037359ee01a784225797caa8a5e7a62b9653" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec97037359ee01a784225797caa8a5e7a62b9653" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/9/39680423a125f1e01eca48e30cda2ede6e2a7472" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderResourceIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderResourceUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,21 +93,6 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.OrderControllerUnitTest">
-    <configuration name="OrderControllerIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerIntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="OrderControllerUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
@@ -131,7 +108,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderControllerUnitTest.getListOfOrdersAssociatedToAnItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderControllerUnitTest.createAnOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
         <pattern>
@@ -141,23 +118,56 @@
       </extension>
       <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller" />
       <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
-      <option name="METHOD_NAME" value="getListOfOrdersAssociatedToAnItem" />
+      <option name="METHOD_NAME" value="createAnOrder" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderControllerUnitTest.deleteAnOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="academy.mindswap.orderservice.service.*" />
+          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.service" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
+      <option name="METHOD_NAME" value="deleteAnOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderControllerUnitTest.getAnOrderById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
+      <option name="METHOD_NAME" value="getAnOrderById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderControllerUnitTest.updateAnOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
+      <option name="METHOD_NAME" value="updateAnOrder" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,9 +189,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.OrderControllerUnitTest" />
-        <item itemvalue="JUnit.OrderServiceUnitTest" />
-        <item itemvalue="JUnit.OrderControllerIntegrationTest" />
-        <item itemvalue="JUnit.OrderControllerUnitTest.getListOfOrdersAssociatedToAnItem" />
+        <item itemvalue="JUnit.OrderControllerUnitTest.deleteAnOrder" />
+        <item itemvalue="JUnit.OrderControllerUnitTest.updateAnOrder" />
+        <item itemvalue="JUnit.OrderControllerUnitTest.createAnOrder" />
+        <item itemvalue="JUnit.OrderControllerUnitTest.getAnOrderById" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +207,7 @@
       <workItem from="1693938532495" duration="4160000" />
       <workItem from="1694004708450" duration="2846000" />
       <workItem from="1694083659212" duration="17081000" />
-      <workItem from="1694259668165" duration="1774000" />
+      <workItem from="1694259668165" duration="3709000" />
     </task>
     <servers />
   </component>
