@@ -27,8 +27,8 @@ public class OrderControllerUnitTest {
     @BeforeAll
     public static void setUp() {
         orderService = mock(OrderServiceImpl.class);
-        OrderController categoryController = new OrderController(orderService);
-        webTestClient = WebTestClient.bindToController(categoryController).build();
+        OrderController orderController = new OrderController(orderService);
+        webTestClient = WebTestClient.bindToController(orderController).build();
     }
 
     @Nested
@@ -55,8 +55,6 @@ public class OrderControllerUnitTest {
                     .hasSize(2);
         }
     }
-
-
 
     @Nested
     @Tag("get")
@@ -95,8 +93,6 @@ public class OrderControllerUnitTest {
         }
     }
 
-
-
     @Nested
     @Tag("create")
     @DisplayName("Create order unit test")
@@ -123,7 +119,6 @@ public class OrderControllerUnitTest {
                     .isEqualTo(order);
         }
     }
-
 
     @Nested
     @Tag("update")

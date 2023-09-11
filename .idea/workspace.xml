@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f6f18d20-4d7b-476f-b967-c57b31380e6a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/test/java/academy/mindswap/catalogservice/CatalogServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/test/java/academy/mindswap/catalogservice/CatalogServiceUnitTestApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,22 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OrderServiceUnitTest">
+  <component name="RunManager" selected="JUnit.CatalogControllerUnitTest$ListItemsValidations">
+    <configuration name="CatalogControllerUnitTest$ListItemsValidations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.catalogservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest$ListItemsValidations" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OrderServiceUnitTest$ListOrdersValidations.shouldListOrders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
@@ -157,22 +173,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceUnitTest.shouldGetOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.orderservice.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.service" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest" />
-      <option name="METHOD_NAME" value="shouldGetOrder" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CatalogServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="catalog-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="academy.mindswap.catalogservice.CatalogServiceApplication" />
@@ -189,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CatalogControllerUnitTest$ListItemsValidations" />
         <item itemvalue="JUnit.OrderServiceUnitTest" />
         <item itemvalue="JUnit.OrderServiceUnitTest$ListOrdersValidations.shouldListOrders" />
         <item itemvalue="JUnit.OrderServiceUnitTest$UpdateOrderValidations.shouldUpdateOrderNotFound" />
         <item itemvalue="JUnit.OrderServiceUnitTest$UpdateOrderValidations" />
-        <item itemvalue="JUnit.OrderServiceUnitTest.shouldGetOrder" />
       </list>
     </recent_temporary>
   </component>
@@ -208,7 +208,7 @@
       <workItem from="1693938532495" duration="4160000" />
       <workItem from="1694004708450" duration="2846000" />
       <workItem from="1694083659212" duration="17081000" />
-      <workItem from="1694259668165" duration="11407000" />
+      <workItem from="1694259668165" duration="11981000" />
     </task>
     <servers />
   </component>
