@@ -33,7 +33,6 @@ public class ItemConverter {
 
     public Item toEntityFromUpdateDto(ItemUpdateDto itemUpdateDto) {
         return Item.builder()
-                .id(itemUpdateDto.getId())
                 .name(itemUpdateDto.getName())
                 .price(itemUpdateDto.getPrice())
                 .build();
