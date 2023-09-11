@@ -8,13 +8,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import static org.mockito.Mockito.when;
+
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.ArrayList;
+
+import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
 class OrderServiceUnitTest {
@@ -42,6 +44,8 @@ class OrderServiceUnitTest {
                     Assertions.assertEquals(newOrder, order);
                 })
                 .verifyComplete();
+
+        verify(orderRepository, times(1)).findById(1L);
     }
 
     @Test
@@ -52,5 +56,7 @@ class OrderServiceUnitTest {
                 .create(userMono)
                 .expectErrorMatches(throwable -> throwable instanceof ResponseStatusException)
                 .verify();
+
+        verify(orderRepository, times(1)).findById(1L);
     }
 }
