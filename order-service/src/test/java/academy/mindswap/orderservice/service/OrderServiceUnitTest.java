@@ -32,8 +32,10 @@ class OrderServiceUnitTest {
                 .total(0.0)
                 .orderItemList(new ArrayList<>())
                 .build();
+
         when(orderRepository.findById(1L)).thenReturn(Mono.just(order));
         Mono<Order> userMono = orderService.get(1L);
+
         StepVerifier
                 .create(userMono)
                 .consumeNextWith(newOrder -> {

@@ -3,12 +3,13 @@ package academy.mindswap.orderservice.controller;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.service.OrderService;
 import academy.mindswap.orderservice.service.OrderServiceImpl;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -20,107 +21,144 @@ import static org.mockito.Mockito.when;
 @ExtendWith(SpringExtension.class)
 public class OrderControllerUnitTest {
 
-    OrderService orderService;
-    WebTestClient webTestClient;
-    OrderController categoryController;
+    private static OrderService orderService;
+    private static WebTestClient webTestClient;
 
-    Order order = new Order();
-
-    @Before
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         orderService = mock(OrderServiceImpl.class);
-        categoryController = new OrderController(orderService);
+        OrderController categoryController = new OrderController(orderService);
         webTestClient = WebTestClient.bindToController(categoryController).build();
-
-        order.setId(1L);
-
-
     }
 
-    @Test
-    public void getListOfAllOrders() {
-        Order order = Order.builder()
-                .id(1L)
-                .total(0.0)
-                .orderItemList(new ArrayList<>())
-                .build();
+    @Nested
+    @Tag("list")
+    @DisplayName("List orders unit test")
+    class ListOrdersValidations {
+        @Test
+        void getListOfAllOrders() {
+            Order order = Order.builder()
+                    .id(1L)
+                    .total(0.0)
+                    .orderItemList(new ArrayList<>())
+                    .build();
 
-        when(orderService.listAll()).thenReturn(Flux.just(order, new Order()));
+            when(orderService.listAll()).thenReturn(Flux.just(order, new Order()));
 
-        webTestClient.get()
-                .uri("/api/orders")
-                .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(Order.class)
-                .hasSize(2);
+            webTestClient.get()
+                    .uri("/api/orders")
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectBodyList(Order.class)
+                    .hasSize(2);
+        }
     }
 
-    @Test
-    public void getAnOrderById() {
-        Order order = Order.builder()
-                .id(1L)
-                .total(0.0)
-                .orderItemList(new ArrayList<>())
-                .build();
 
-        when(orderService.get(1L)).thenReturn(Mono.just(order));
 
-        webTestClient.get()
-                .uri("/api/orders/1")
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(Order.class)
-                .isEqualTo(order);
+    @Nested
+    @Tag("get")
+    @DisplayName("Get order unit test")
+    class GetOrderValidations {
+        @Test
+        void getAnOrderById() {
+            Order order = Order.builder()
+                    .id(1L)
+                    .total(0.0)
+                    .orderItemList(new ArrayList<>())
+                    .build();
+
+            when(orderService.get(1L)).thenReturn(Mono.just(order));
+
+            webTestClient.get()
+                    .uri("/api/orders/1")
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectBody(Order.class)
+                    .isEqualTo(order);
+        }
     }
 
-    @Test
-    public void createAnOrder() {
-        Order order = Order.builder()
-                .id(1L)
-                .total(0.0)
-                .orderItemList(new ArrayList<>())
-                .build();
 
-        when(orderService.create(order)).thenReturn(Mono.just(order));
 
-        webTestClient.post()
-                .uri("/api/orders")
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(Mono.just(order), Order.class)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(Order.class)
-                .isEqualTo(order);
+    @Nested
+    @Tag("create")
+    @DisplayName("Create order unit test")
+    class CreateOrderValidations {
+        @Test
+        void createAnOrder() {
+            Order order = Order.builder()
+                    .id(1L)
+                    .total(0.0)
+                    .orderItemList(new ArrayList<>())
+                    .build();
+
+            when(orderService.create(order)).thenReturn(Mono.just(order));
+
+            webTestClient.post()
+                    .uri("/api/orders")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(Mono.just(order), Order.class)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectBody(Order.class)
+                    .isEqualTo(order);
+        }
     }
 
-    @Test
-    public void updateAnOrder() {
-        Order order = Order.builder()
-                .id(1L)
-                .total(0.0)
-                .orderItemList(new ArrayList<>())
-                .build();
 
-        when(orderService.update(order.getId(), order)).thenReturn(Mono.just(order));
+    @Nested
+    @Tag("update")
+    @DisplayName("Update order unit test")
+    class UpdateOrderValidations {
+        @Test
+        void updateAnOrder() {
+            Order order = Order.builder()
+                    .id(1L)
+                    .total(0.0)
+                    .orderItemList(new ArrayList<>())
+                    .build();
 
-        webTestClient.put()
-                .uri("/api/orders/1")
-                .body(Mono.just(order), Order.class)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(Order.class)
-                .isEqualTo(order);
+            when(orderService.update(order.getId(), order)).thenReturn(Mono.just(order));
+
+            webTestClient.put()
+                    .uri("/api/orders/1")
+                    .body(Mono.just(order), Order.class)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectBody(Order.class)
+                    .isEqualTo(order);
+        }
     }
 
-    @Test
-    public void deleteAnOrder() {
-        // when(orderService.delete(1L)).thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
-        when(orderService.delete(1L)).thenReturn(Mono.empty());
+    @Nested
+    @Tag("deleteOrder")
+    @DisplayName("Delete order unit test")
+    class DeleteOrderValidations {
+        @Test
+        @DisplayName("Delete an order successfully")
+        void shouldDeleteAnOrder() {
+            when(orderService.delete(1L)).thenReturn(Mono.empty());
 
-        webTestClient.delete()
-                .uri("/api/orders/1")
-                .exchange()
-                .expectStatus()
-                .isOk();
+            webTestClient.delete()
+                    .uri("/api/orders/1")
+                    .exchange()
+                    .expectStatus()
+                    .isOk();
+        }
+
+        @Test
+        @DisplayName("Delete a not found order")
+        void shouldNotDeleteANotFoundOrder() {
+            when(orderService.delete(1L))
+                    .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
+
+
+            webTestClient.delete()
+                    .uri("/api/orders/1")
+                    .exchange()
+                    .expectStatus()
+                    .isNotFound();
+        }
     }
 }
