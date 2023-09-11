@@ -36,7 +36,8 @@ public class OrderControllerUnitTest {
     @DisplayName("List orders unit test")
     class ListOrdersValidations {
         @Test
-        void getListOfAllOrders() {
+        @DisplayName("List orders successfully")
+        void shouldListOrders() {
             Order order = Order.builder()
                     .id(1L)
                     .total(0.0)
@@ -48,7 +49,8 @@ public class OrderControllerUnitTest {
             webTestClient.get()
                     .uri("/api/orders")
                     .exchange()
-                    .expectStatus().isOk()
+                    .expectStatus()
+                    .isOk()
                     .expectBodyList(Order.class)
                     .hasSize(2);
         }
@@ -61,7 +63,8 @@ public class OrderControllerUnitTest {
     @DisplayName("Get order unit test")
     class GetOrderValidations {
         @Test
-        void getAnOrderById() {
+        @DisplayName("Get order successfully")
+        void shouldGetOrder() {
             Order order = Order.builder()
                     .id(1L)
                     .total(0.0)
@@ -77,6 +80,19 @@ public class OrderControllerUnitTest {
                     .expectBody(Order.class)
                     .isEqualTo(order);
         }
+
+        @Test
+        @DisplayName("Get order successfully")
+        void shouldGetOrderNotFound() {
+            when(orderService.get(1L))
+                    .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
+
+            webTestClient.get()
+                    .uri("/api/orders/1")
+                    .exchange()
+                    .expectStatus()
+                    .isNotFound();
+        }
     }
 
 
@@ -86,7 +102,8 @@ public class OrderControllerUnitTest {
     @DisplayName("Create order unit test")
     class CreateOrderValidations {
         @Test
-        void createAnOrder() {
+        @DisplayName("Create order successfully")
+        void shouldCreateOrder() {
             Order order = Order.builder()
                     .id(1L)
                     .total(0.0)
@@ -100,7 +117,8 @@ public class OrderControllerUnitTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(Mono.just(order), Order.class)
                     .exchange()
-                    .expectStatus().isOk()
+                    .expectStatus()
+                    .isOk()
                     .expectBody(Order.class)
                     .isEqualTo(order);
         }
@@ -112,7 +130,8 @@ public class OrderControllerUnitTest {
     @DisplayName("Update order unit test")
     class UpdateOrderValidations {
         @Test
-        void updateAnOrder() {
+        @DisplayName("Update order successfully")
+        void shouldUpdateOrder() {
             Order order = Order.builder()
                     .id(1L)
                     .total(0.0)
@@ -128,6 +147,26 @@ public class OrderControllerUnitTest {
                     .expectStatus().isOk()
                     .expectBody(Order.class)
                     .isEqualTo(order);
+        }
+
+        @Test
+        @DisplayName("Update order successfully")
+        void shouldUpdateOrderNotFound() {
+            Order order = Order.builder()
+                    .id(1L)
+                    .total(0.0)
+                    .orderItemList(new ArrayList<>())
+                    .build();
+
+            when(orderService.update(order.getId(), order))
+                    .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
+
+            webTestClient.put()
+                    .uri("/api/orders/1")
+                    .body(Mono.just(order), Order.class)
+                    .exchange()
+                    .expectStatus()
+                    .isNotFound();
         }
     }
 
@@ -149,7 +188,7 @@ public class OrderControllerUnitTest {
 
         @Test
         @DisplayName("Delete a not found order")
-        void shouldNotDeleteANotFoundOrder() {
+        void shouldDeleteANotFoundOrder() {
             when(orderService.delete(1L))
                     .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
 
