@@ -37,7 +37,7 @@ public class Order {
         return Objects.hash(id, total, orderItemList);
     }
 
-    public OrderBuilder builder() {
+    public static OrderBuilder builder() {
         return new OrderBuilder();
     }
 
