@@ -94,64 +94,65 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OrderServiceUnitTest.shouldGetOrder">
-    <configuration name="OrderControllerUnitTest$CreateOrderValidations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.OrderServiceUnitTest">
+    <configuration name="OrderServiceUnitTest$ListOrdersValidations.shouldListOrders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
+          <option name="PATTERN" value="academy.mindswap.orderservice.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest$CreateOrderValidations" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderControllerUnitTest$DeleteOrderValidations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest$DeleteOrderValidations" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderControllerUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderControllerUnitTest.updateAnOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
-      <option name="METHOD_NAME" value="updateAnOrder" />
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest$ListOrdersValidations" />
+      <option name="METHOD_NAME" value="shouldListOrders" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceUnitTest$UpdateOrderValidations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.orderservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest$UpdateOrderValidations" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceUnitTest$UpdateOrderValidations.shouldUpdateOrderNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.orderservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest$UpdateOrderValidations" />
+      <option name="METHOD_NAME" value="shouldUpdateOrderNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.orderservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.service" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OrderServiceUnitTest" />
+        <item itemvalue="JUnit.OrderServiceUnitTest$ListOrdersValidations.shouldListOrders" />
+        <item itemvalue="JUnit.OrderServiceUnitTest$UpdateOrderValidations.shouldUpdateOrderNotFound" />
+        <item itemvalue="JUnit.OrderServiceUnitTest$UpdateOrderValidations" />
         <item itemvalue="JUnit.OrderServiceUnitTest.shouldGetOrder" />
-        <item itemvalue="JUnit.OrderControllerUnitTest" />
-        <item itemvalue="JUnit.OrderControllerUnitTest$CreateOrderValidations" />
-        <item itemvalue="JUnit.OrderControllerUnitTest.updateAnOrder" />
-        <item itemvalue="JUnit.OrderControllerUnitTest$DeleteOrderValidations" />
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +208,7 @@
       <workItem from="1693938532495" duration="4160000" />
       <workItem from="1694004708450" duration="2846000" />
       <workItem from="1694083659212" duration="17081000" />
-      <workItem from="1694259668165" duration="8425000" />
+      <workItem from="1694259668165" duration="11407000" />
     </task>
     <servers />
   </component>
