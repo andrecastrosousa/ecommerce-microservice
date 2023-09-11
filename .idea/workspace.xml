@@ -94,7 +94,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CatalogControllerUnitTest$DeleteItemValidations">
+  <component name="RunManager" selected="JUnit.CatalogControllerUnitTest">
     <configuration name="CatalogControllerUnitTest$DeleteItemValidations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-service" />
       <extension name="coverage">
@@ -110,6 +110,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CatalogControllerUnitTest$GetItemValidations.shouldDeleteItemNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.catalogservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest$GetItemValidations" />
+      <option name="METHOD_NAME" value="shouldDeleteItemNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatalogControllerUnitTest$GetItemValidations.shouldGetItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.catalogservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest$GetItemValidations" />
+      <option name="METHOD_NAME" value="shouldGetItem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CatalogControllerUnitTest$UpdateItemValidations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-service" />
       <extension name="coverage">
@@ -121,38 +153,6 @@
       <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
       <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest$UpdateItemValidations" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CatalogControllerUnitTest$UpdateItemValidations.shouldListItems" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="catalog-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.catalogservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest$UpdateItemValidations" />
-      <option name="METHOD_NAME" value="shouldListItems" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CatalogControllerUnitTest$UpdateItemValidations.shouldUpdateItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="catalog-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.catalogservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest$UpdateItemValidations" />
-      <option name="METHOD_NAME" value="shouldUpdateItem" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CatalogControllerUnitTest" />
+        <item itemvalue="JUnit.CatalogControllerUnitTest$GetItemValidations.shouldDeleteItemNotFound" />
+        <item itemvalue="JUnit.CatalogControllerUnitTest$GetItemValidations.shouldGetItem" />
         <item itemvalue="JUnit.CatalogControllerUnitTest$DeleteItemValidations" />
         <item itemvalue="JUnit.CatalogControllerUnitTest$UpdateItemValidations" />
-        <item itemvalue="JUnit.CatalogControllerUnitTest$UpdateItemValidations.shouldUpdateItem" />
-        <item itemvalue="JUnit.CatalogControllerUnitTest$UpdateItemValidations.shouldListItems" />
-        <item itemvalue="JUnit.CatalogControllerUnitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +207,7 @@
       <workItem from="1693938532495" duration="4160000" />
       <workItem from="1694004708450" duration="2846000" />
       <workItem from="1694083659212" duration="17081000" />
-      <workItem from="1694259668165" duration="16006000" />
+      <workItem from="1694259668165" duration="16179000" />
     </task>
     <servers />
   </component>

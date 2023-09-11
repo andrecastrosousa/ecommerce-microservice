@@ -8,7 +8,6 @@ import academy.mindswap.catalogservice.service.CatalogServiceImpl;
 import org.bson.types.ObjectId;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -62,6 +61,53 @@ public class CatalogControllerUnitTest {
                     .isOk()
                     .expectBodyList(Item.class)
                     .hasSize(2);
+        }
+    }
+
+    @Nested
+    @Tag("getItem")
+    @DisplayName("Delete item")
+    class GetItemValidations {
+        @Test
+        @DisplayName("Get item successfully")
+        void shouldGetItem() {
+            final ObjectId objectId = new ObjectId();
+
+            Item item = Item.builder()
+                    .id(objectId)
+                    .name("item 1")
+                    .price(0.0)
+                    .build();
+
+            when(catalogService.get(objectId)).thenReturn(Mono.just(item));
+
+
+            webTestClient.get()
+                    .uri("/api/items/" + objectId)
+                    .exchange()
+                    .expectStatus()
+                    .isOk()
+                    .expectBody(Item.class)
+                    .value(incomingItem -> {
+                        assertEquals(incomingItem.getName(), item.getName());
+                        assertEquals(incomingItem.getPrice(), item.getPrice());
+                    });
+        }
+
+        @Test
+        @DisplayName("Get a not found item")
+        void shouldDeleteItemNotFound() {
+            final ObjectId objectId = new ObjectId();
+
+            when(catalogService.get(objectId))
+                    .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
+
+
+            webTestClient.get()
+                    .uri("/api/items/" + objectId)
+                    .exchange()
+                    .expectStatus()
+                    .isNotFound();
         }
     }
 
