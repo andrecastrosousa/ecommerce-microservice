@@ -9,9 +9,11 @@ import org.bson.types.ObjectId;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -129,6 +131,41 @@ public class CatalogControllerUnitTest {
                         assertEquals(incomingItem.getName(), item.getName());
                         assertEquals(incomingItem.getPrice(), item.getPrice());
                     });
+        }
+    }
+
+    @Nested
+    @Tag("deleteItem")
+    @DisplayName("Delete item")
+    class DeleteItemValidations {
+        @Test
+        @DisplayName("Delete item successfully")
+        void shouldDeleteItem() {
+            final ObjectId objectId = new ObjectId();
+
+            when(catalogService.delete(objectId)).thenReturn(Mono.empty());
+
+
+            webTestClient.delete()
+                    .uri("/api/items/" + objectId)
+                    .exchange()
+                    .expectStatus()
+                    .isOk();
+        }
+
+        @Test
+        @DisplayName("Delete a not found item")
+        void shouldDeleteItemNotFound() {
+            final ObjectId objectId = new ObjectId();
+
+            when(catalogService.delete(objectId))
+                    .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
+
+            webTestClient.delete()
+                    .uri("/api/orders/" + objectId)
+                    .exchange()
+                    .expectStatus()
+                    .isNotFound();
         }
     }
 }
