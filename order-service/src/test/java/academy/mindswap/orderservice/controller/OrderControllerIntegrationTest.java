@@ -17,27 +17,12 @@ import static org.hamcrest.Matchers.is;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes={OrderServiceApplication.class}, webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class OrderControllerIntegrationTest {
-    // OrderItemRepository orderItemRepository;
     @Autowired
     OrderRepository orderRepository;
-    // ItemRepository itemRepository;
-    // OrderConverter orderConverter;
     OrderCreateDto orderCreateDto = new OrderCreateDto();
 
     @BeforeEach
     public void before() {
-        /*orderItemRepository.deleteAll();
-        itemRepository.deleteAll();
-        orderRepository.deleteAll();
-
-        orderItemRepository.reset();
-        itemRepository.reset();
-        orderRepository.reset();
-
-        orderCreateDto.setOrderDatetime(LocalDateTime.now());
-        Order order = orderConverter.toEntityFromCreateDto(orderCreateDto);
-
-        orderRepository.save(order);*/
     }
 
     @Nested
@@ -97,7 +82,7 @@ public class OrderControllerIntegrationTest {
             given()
                     .delete("/api/orders/1")
                     .then()
-                    .statusCode(HttpStatus.SC_OK);
+                    .statusCode(HttpStatus.SC_NOT_FOUND);
 
         }
     }

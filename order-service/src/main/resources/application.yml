@@ -1,5 +1,5 @@
 spring:
-    r2dbc:
+    jdbc:
         url: r2dbc:postgresql://127.0.0.1:5432/orders
         username: root
         password: 123

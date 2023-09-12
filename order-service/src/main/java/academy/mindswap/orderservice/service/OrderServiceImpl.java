@@ -1,5 +1,7 @@
 package academy.mindswap.orderservice.service;
 
+import academy.mindswap.orderservice.dto.OrderCreateDto;
+import academy.mindswap.orderservice.dto.OrderUpdateDto;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.repository.OrderRepository;
 import academy.mindswap.orderservice.utils.Messages;
@@ -10,6 +12,9 @@ import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -17,18 +22,28 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
-    public Flux<Order> listAll() {
+    public List<Order> listAll() {
         return orderRepository.findAll();
     }
 
     @Override
-    public Mono<Order> get(Long id) {
-        return orderRepository.findById(id)
-                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND)));
+    public Order get(Long id) {
+        Optional<Order> existingOrder = orderRepository.findById(id);
+        if (existingOrder.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND);
+        }
+
+        return existingOrder.get();
     }
 
     @Override
-    public Mono<Order> update(Long id, Order order) {
+    public Order update(Long id, OrderUpdateDto order) {
+        Optional<Order> existingOrder = orderRepository.findById(id);
+        if (existingOrder.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND);
+        }
+
+        Order order =
         return orderRepository.findById(id)
                 .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND)))
                 .flatMap(order1 -> {
@@ -38,13 +53,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Mono<Order> create(Order order) {
+    public Order create(OrderCreateDto order) {
         return orderRepository.save(order);
     }
 
     @Override
-    public Mono<Void> delete(Long id) {
-        return orderRepository.deleteById(id)
-                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND)));
+    public void delete(Long id) {
+        orderRepository.deleteById(id);
     }
 }

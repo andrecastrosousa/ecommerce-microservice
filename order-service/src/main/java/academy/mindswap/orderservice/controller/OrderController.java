@@ -3,18 +3,16 @@ package academy.mindswap.orderservice.controller;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.service.OrderService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/orders")
 @AllArgsConstructor
+@RequestMapping("/api/orders")
 public class OrderController {
 
-    OrderService orderService;
+    private final OrderService orderService;
 
     @GetMapping
     public Flux<Order> list() {

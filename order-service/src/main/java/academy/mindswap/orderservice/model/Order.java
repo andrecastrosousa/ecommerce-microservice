@@ -1,17 +1,18 @@
 package academy.mindswap.orderservice.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.List;
 import java.util.Objects;
 
 @Getter
 @Setter
-@Table("orders")
+@Entity
 public class Order {
 
     @Id
@@ -19,7 +20,7 @@ public class Order {
 
     private double total;
 
-    @Transient
+    @OneToMany
     private List<OrderItem> orderItemList;
 
     @Override

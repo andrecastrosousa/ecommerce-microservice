@@ -1,23 +1,24 @@
 package academy.mindswap.orderservice.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
 
 @Getter
 @Setter
-@Table("order_items")
+@Entity()
 public class OrderItem {
     @Id
     private Long id;
 
-    @Column("order_id")
-    private Long orderId;
+    @ManyToOne
+    private Order order;
 
-    @Column("item_id")
-    private Long itemId;
+    @ManyToOne
+    private Item item;
 
     private int quantity;
 }
