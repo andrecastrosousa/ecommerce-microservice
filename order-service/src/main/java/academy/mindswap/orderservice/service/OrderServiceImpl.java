@@ -1,5 +1,6 @@
 package academy.mindswap.orderservice.service;
 
+import academy.mindswap.orderservice.converter.OrderConverter;
 import academy.mindswap.orderservice.dto.OrderCreateDto;
 import academy.mindswap.orderservice.dto.OrderUpdateDto;
 import academy.mindswap.orderservice.model.Order;
@@ -9,8 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +19,7 @@ import java.util.Optional;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderConverter orderConverter;
 
     @Override
     public List<Order> listAll() {
@@ -37,23 +37,22 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order update(Long id, OrderUpdateDto order) {
+    public Order update(Long id, OrderUpdateDto orderUpdateDto) {
         Optional<Order> existingOrder = orderRepository.findById(id);
         if (existingOrder.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND);
         }
 
-        Order order =
-        return orderRepository.findById(id)
-                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND)))
-                .flatMap(order1 -> {
-                    order1.setTotal(order.getTotal());
-                    return orderRepository.save(order1);
-                });
+        Order order = existingOrder.get();
+        order.setTotal(orderUpdateDto.getTotal());
+        orderRepository.save(order);
+
+        return order;
     }
 
     @Override
-    public Order create(OrderCreateDto order) {
+    public Order create(OrderCreateDto orderCreateDto) {
+        Order order = orderRepository.save(orderConverter.toEntityFromCreateDto(orderCreateDto));
         return orderRepository.save(order);
     }
 

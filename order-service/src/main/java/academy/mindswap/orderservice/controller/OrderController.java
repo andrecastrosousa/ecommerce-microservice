@@ -1,11 +1,15 @@
 package academy.mindswap.orderservice.controller;
 
+import academy.mindswap.orderservice.dto.OrderCreateDto;
+import academy.mindswap.orderservice.dto.OrderUpdateDto;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.service.OrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -15,28 +19,28 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping
-    public Flux<Order> list() {
+    public List<Order> list() {
         return orderService.listAll();
     }
 
     @GetMapping("/{id}")
-    public Mono<Order> get(@PathVariable Long id) {
+    public Order get(@PathVariable Long id) {
         return orderService.get(id);
     }
 
     @PostMapping
-    public Mono<Order> create(@RequestBody Order order) {
-        return orderService.create(order);
+    public Order create(@RequestBody OrderCreateDto orderCreateDto) {
+        return orderService.create(orderCreateDto);
     }
 
     @PutMapping("/{id}")
-    public Mono<Order> update(@PathVariable Long id, @RequestBody Order order) {
-        return orderService.update(id, order);
+    public Order update(@PathVariable Long id, @RequestBody OrderUpdateDto orderUpdateDto) {
+        return orderService.update(id, orderUpdateDto);
     }
 
     @DeleteMapping("/{id}")
-    public Mono<Void> delete(@PathVariable Long id) {
-        return orderService.delete(id);
+    public void delete(@PathVariable Long id) {
+        orderService.delete(id);
     }
 
 }
