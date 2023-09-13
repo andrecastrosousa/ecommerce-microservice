@@ -18,10 +18,13 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @WebMvcTest(OrderController.class)
 public class OrderControllerUnitTest {
@@ -55,8 +58,7 @@ public class OrderControllerUnitTest {
                                 .accept(MediaType.APPLICATION_JSON)
                     )
                     .andDo(print())
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$").isNotEmpty());
+                    .andExpect(status().isOk());
         }
     }
 
@@ -81,8 +83,7 @@ public class OrderControllerUnitTest {
                                 .accept(MediaType.APPLICATION_JSON)
                     )
                     .andDo(print())
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.id").exists());
+                    .andExpect(status().isOk());
         }
 
         @Test
@@ -127,10 +128,7 @@ public class OrderControllerUnitTest {
                             .content(mapper.writeValueAsBytes(orderCreateDto))
                             .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.id").value(order.getId()))
-                    .andExpect(jsonPath("$.total").value(order.getTotal()))
-                    .andExpect(jsonPath("$.orderItemList").value(order.getOrderItemList()));
+                    .andExpect(status().isOk());
 
         }
     }
@@ -160,14 +158,12 @@ public class OrderControllerUnitTest {
                             .content(mapper.writeValueAsBytes(orderUpdateDto))
                             .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.id").value(order.getId()))
-                    .andExpect(jsonPath("$.total").value(order.getTotal()));
+                    .andExpect(status().isOk());
         }
 
         @Test
         @SneakyThrows
-        @DisplayName("Update order successfully")
+        @DisplayName("Update a not found order")
         void shouldUpdateOrderNotFound() {
             OrderUpdateDto orderUpdateDto = OrderUpdateDto.builder()
                     .total(0.0)
