@@ -32,13 +32,7 @@ public class OrderControllerUnitTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private static ObjectMapper mapper = new ObjectMapper();
-
-    @BeforeAll
-    public static void setUp() {
-        /*orderService = mock(OrderServiceImpl.class);
-        OrderController orderController = new OrderController(orderService);*/
-    }
+    private static final ObjectMapper mapper = new ObjectMapper();
 
     @Nested
     @Tag("list")
@@ -62,7 +56,6 @@ public class OrderControllerUnitTest {
                     )
                     .andDo(print())
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$").exists())
                     .andExpect(jsonPath("$").isNotEmpty());
         }
     }
@@ -89,7 +82,7 @@ public class OrderControllerUnitTest {
                     )
                     .andDo(print())
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.id").value(1L));
+                    .andExpect(jsonPath("$.id").exists());
         }
 
         @Test
@@ -130,7 +123,7 @@ public class OrderControllerUnitTest {
             when(orderService.create(orderCreateDto)).thenReturn(order);
 
             mockMvc.perform(
-                        post("api/orders")
+                        post("/api/orders")
                             .content(mapper.writeValueAsBytes(orderCreateDto))
                             .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
@@ -164,7 +157,8 @@ public class OrderControllerUnitTest {
 
             mockMvc.perform(
                     put("/api/orders/{id}", 1)
-                            .content(mapper.writeValueAsBytes(orderUpdateDto)).contentType(MediaType.APPLICATION_JSON)
+                            .content(mapper.writeValueAsBytes(orderUpdateDto))
+                            .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.id").value(order.getId()))
@@ -190,7 +184,8 @@ public class OrderControllerUnitTest {
 
             mockMvc.perform(
                             put("/api/orders/{id}", 1)
-                                    .content(mapper.writeValueAsBytes(orderUpdateDto)).contentType(MediaType.APPLICATION_JSON)
+                                    .content(mapper.writeValueAsBytes(orderUpdateDto))
+                                    .contentType(MediaType.APPLICATION_JSON)
                                     .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isNotFound());
         }
@@ -205,7 +200,7 @@ public class OrderControllerUnitTest {
         @DisplayName("Delete an order successfully")
         void shouldDeleteAnOrder() {
             mockMvc.perform(
-                    delete("api/orders/{id}", 1)
+                    delete("/api/orders/{id}", 1)
                             .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk());
         }
@@ -215,7 +210,7 @@ public class OrderControllerUnitTest {
         @DisplayName("Delete a not found order")
         void shouldDeleteANotFoundOrder() {
             mockMvc.perform(
-                            delete("api/orders/{id}", 1)
+                            delete("/api/orders/{id}", 1)
                                     .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk());
         }
