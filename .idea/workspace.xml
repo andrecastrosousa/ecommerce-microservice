@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6f18d20-4d7b-476f-b967-c57b31380e6a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/test/java/academy/mindswap/catalogservice/service/CatalogServiceUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/test/java/academy/mindswap/catalogservice/service/CatalogServiceUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/config/PostgresConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/dto/OrderCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/dto/OrderCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/service/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/OrderServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java" afterDir="false" />
     </list>
@@ -102,39 +99,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderServiceApplication">
-    <configuration name="CatalogControllerUnitTest$GetItemValidations.shouldDeleteItemNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="catalog-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.catalogservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest$GetItemValidations" />
-      <option name="METHOD_NAME" value="shouldDeleteItemNotFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CatalogControllerUnitTest$GetItemValidations.shouldGetItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="catalog-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.catalogservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest$GetItemValidations" />
-      <option name="METHOD_NAME" value="shouldGetItem" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.OrderServiceUnitTest">
     <configuration name="CatalogControllerUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-service" />
       <extension name="coverage">
@@ -180,6 +145,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OrderControllerUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.orderservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.service" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.service.OrderServiceUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CatalogServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="catalog-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="academy.mindswap.catalogservice.CatalogServiceApplication" />
@@ -196,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OrderServiceUnitTest" />
+        <item itemvalue="JUnit.OrderControllerUnitTest" />
         <item itemvalue="JUnit.OrderControllerIntegrationTest" />
         <item itemvalue="JUnit.OrderControllerIntegrationTest$ItemCrudTests" />
         <item itemvalue="JUnit.CatalogControllerUnitTest" />
-        <item itemvalue="JUnit.CatalogControllerUnitTest$GetItemValidations.shouldDeleteItemNotFound" />
-        <item itemvalue="JUnit.CatalogControllerUnitTest$GetItemValidations.shouldGetItem" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +211,7 @@
       <workItem from="1694004708450" duration="2846000" />
       <workItem from="1694083659212" duration="17081000" />
       <workItem from="1694259668165" duration="22037000" />
-      <workItem from="1694533474175" duration="3949000" />
+      <workItem from="1694533474175" duration="6993000" />
     </task>
     <servers />
   </component>

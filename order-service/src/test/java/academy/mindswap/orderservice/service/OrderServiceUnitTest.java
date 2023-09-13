@@ -1,6 +1,7 @@
 package academy.mindswap.orderservice.service;
 
 
+import academy.mindswap.orderservice.converter.OrderConverter;
 import academy.mindswap.orderservice.dto.OrderCreateDto;
 import academy.mindswap.orderservice.dto.OrderUpdateDto;
 import academy.mindswap.orderservice.model.Order;
@@ -29,6 +30,9 @@ class OrderServiceUnitTest {
 
     @Mock
     private OrderRepository orderRepository;
+
+    @Mock
+    private OrderConverter orderConverter;
 
     @Nested
     @Tag("listOrders")
@@ -81,7 +85,7 @@ class OrderServiceUnitTest {
         @Test
         @DisplayName("Get a not found order")
         void shouldGetOrderNotFound() {
-            when(orderRepository.findById(1L)).thenReturn(null);
+            when(orderRepository.findById(1L)).thenReturn(Optional.empty());
 
 
             ResponseStatusException thrown = assertThrows(
@@ -90,7 +94,7 @@ class OrderServiceUnitTest {
                     "Order not found"
             );
 
-            assertEquals("Order not found", thrown.getMessage());
+            assertEquals("404 NOT_FOUND \"Order not found\"", thrown.getMessage());
 
             verify(orderRepository, times(1)).findById(1L);
         }
@@ -115,6 +119,7 @@ class OrderServiceUnitTest {
                     .build();
 
             when(orderRepository.save(order)).thenReturn(order);
+            when(orderConverter.toEntityFromCreateDto(orderCreateDto)).thenReturn(order);
             Order actualOrder = orderService.create(orderCreateDto);
 
             assertEquals(order, actualOrder);
@@ -163,9 +168,7 @@ class OrderServiceUnitTest {
                     .orderItemList(new ArrayList<>())
                     .build();
 
-            when(orderRepository.findById(order.getId())).thenReturn(null);
-
-            Order actualOrder = orderService.update(order.getId(), orderUpdateDto);
+            when(orderRepository.findById(order.getId())).thenReturn(Optional.empty());
 
             ResponseStatusException thrown = assertThrows(
                     ResponseStatusException.class,
@@ -173,7 +176,7 @@ class OrderServiceUnitTest {
                     "Order not found"
             );
 
-            assertEquals("Order not found", thrown.getMessage());
+            assertEquals("404 NOT_FOUND \"Order not found\"", thrown.getMessage());
 
             verify(orderRepository, times(1)).findById(order.getId());
             verify(orderRepository, times(0)).save(order);

@@ -3,18 +3,17 @@ package academy.mindswap.orderservice.controller;
 import academy.mindswap.orderservice.OrderServiceApplication;
 import academy.mindswap.orderservice.dto.OrderCreateDto;
 import academy.mindswap.orderservice.repository.OrderRepository;
-import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes={OrderServiceApplication.class}, webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class OrderControllerIntegrationTest {
     @Autowired

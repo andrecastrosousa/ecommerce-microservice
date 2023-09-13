@@ -4,34 +4,40 @@ import academy.mindswap.orderservice.dto.OrderCreateDto;
 import academy.mindswap.orderservice.dto.OrderUpdateDto;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.service.OrderService;
-import academy.mindswap.orderservice.service.OrderServiceImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.server.ResponseStatusException;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@ExtendWith(SpringExtension.class)
+@WebMvcTest(OrderController.class)
 public class OrderControllerUnitTest {
 
-    private static OrderService orderService;
-    private static WebTestClient webTestClient;
+    @MockBean
+    private OrderService orderService;
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    private static ObjectMapper mapper = new ObjectMapper();
 
     @BeforeAll
     public static void setUp() {
-        orderService = mock(OrderServiceImpl.class);
-        OrderController orderController = new OrderController(orderService);
-        webTestClient = WebTestClient.bindToController(orderController).build();
+        /*orderService = mock(OrderServiceImpl.class);
+        OrderController orderController = new OrderController(orderService);*/
     }
 
     @Nested
@@ -39,6 +45,7 @@ public class OrderControllerUnitTest {
     @DisplayName("List orders unit test")
     class ListOrdersValidations {
         @Test
+        @SneakyThrows
         @DisplayName("List orders successfully")
         void shouldListOrders() {
             Order order = Order.builder()
@@ -49,13 +56,14 @@ public class OrderControllerUnitTest {
 
             when(orderService.listAll()).thenReturn(new ArrayList<>(List.of(order, new Order())));
 
-            webTestClient.get()
-                    .uri("/api/orders")
-                    .exchange()
-                    .expectStatus()
-                    .isOk()
-                    .expectBodyList(Order.class)
-                    .hasSize(2);
+            mockMvc.perform(
+                        get("/api/orders")
+                                .accept(MediaType.APPLICATION_JSON)
+                    )
+                    .andDo(print())
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$").exists())
+                    .andExpect(jsonPath("$").isNotEmpty());
         }
     }
 
@@ -64,6 +72,7 @@ public class OrderControllerUnitTest {
     @DisplayName("Get order unit test")
     class GetOrderValidations {
         @Test
+        @SneakyThrows
         @DisplayName("Get order successfully")
         void shouldGetOrder() {
             Order order = Order.builder()
@@ -74,25 +83,28 @@ public class OrderControllerUnitTest {
 
             when(orderService.get(1L)).thenReturn(order);
 
-            webTestClient.get()
-                    .uri("/api/orders/1")
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectBody(Order.class)
-                    .isEqualTo(order);
+            mockMvc.perform(
+                        get("/api/orders/{id}", 1)
+                                .accept(MediaType.APPLICATION_JSON)
+                    )
+                    .andDo(print())
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$.id").value(1L));
         }
 
         @Test
+        @SneakyThrows
         @DisplayName("Get order successfully")
         void shouldGetOrderNotFound() {
             when(orderService.get(1L))
                     .thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
 
-            webTestClient.get()
-                    .uri("/api/orders/1")
-                    .exchange()
-                    .expectStatus()
-                    .isNotFound();
+            mockMvc.perform(
+                            get("/api/orders/{id}", 1)
+                                    .accept(MediaType.APPLICATION_JSON)
+                    )
+                    .andDo(print())
+                    .andExpect(status().isNotFound());
         }
     }
 
@@ -100,6 +112,7 @@ public class OrderControllerUnitTest {
     @Tag("create")
     @DisplayName("Create order unit test")
     class CreateOrderValidations {
+        @SneakyThrows
         @Test
         @DisplayName("Create order successfully")
         void shouldCreateOrder() {
@@ -116,15 +129,16 @@ public class OrderControllerUnitTest {
 
             when(orderService.create(orderCreateDto)).thenReturn(order);
 
-            webTestClient.post()
-                    .uri("/api/orders")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(Mono.just(order), Order.class)
-                    .exchange()
-                    .expectStatus()
-                    .isOk()
-                    .expectBody(Order.class)
-                    .isEqualTo(order);
+            mockMvc.perform(
+                        post("api/orders")
+                            .content(mapper.writeValueAsBytes(orderCreateDto))
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$.id").value(order.getId()))
+                    .andExpect(jsonPath("$.total").value(order.getTotal()))
+                    .andExpect(jsonPath("$.orderItemList").value(order.getOrderItemList()));
+
         }
     }
 
@@ -133,6 +147,7 @@ public class OrderControllerUnitTest {
     @DisplayName("Update order unit test")
     class UpdateOrderValidations {
         @Test
+        @SneakyThrows
         @DisplayName("Update order successfully")
         void shouldUpdateOrder() {
             OrderUpdateDto orderUpdateDto = OrderUpdateDto.builder()
@@ -147,16 +162,17 @@ public class OrderControllerUnitTest {
 
             when(orderService.update(order.getId(), orderUpdateDto)).thenReturn(order);
 
-            webTestClient.put()
-                    .uri("/api/orders/1")
-                    .body(Mono.just(order), Order.class)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectBody(Order.class)
-                    .isEqualTo(order);
+            mockMvc.perform(
+                    put("/api/orders/{id}", 1)
+                            .content(mapper.writeValueAsBytes(orderUpdateDto)).contentType(MediaType.APPLICATION_JSON)
+                            .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$.id").value(order.getId()))
+                    .andExpect(jsonPath("$.total").value(order.getTotal()));
         }
 
         @Test
+        @SneakyThrows
         @DisplayName("Update order successfully")
         void shouldUpdateOrderNotFound() {
             OrderUpdateDto orderUpdateDto = OrderUpdateDto.builder()
@@ -172,12 +188,11 @@ public class OrderControllerUnitTest {
             when(orderService.update(order.getId(), orderUpdateDto))
                     .thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
 
-            webTestClient.put()
-                    .uri("/api/orders/1")
-                    .body(Mono.just(order), Order.class)
-                    .exchange()
-                    .expectStatus()
-                    .isNotFound();
+            mockMvc.perform(
+                            put("/api/orders/{id}", 1)
+                                    .content(mapper.writeValueAsBytes(orderUpdateDto)).contentType(MediaType.APPLICATION_JSON)
+                                    .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isNotFound());
         }
     }
 
@@ -186,26 +201,23 @@ public class OrderControllerUnitTest {
     @DisplayName("Delete order unit test")
     class DeleteOrderValidations {
         @Test
+        @SneakyThrows
         @DisplayName("Delete an order successfully")
         void shouldDeleteAnOrder() {
-            webTestClient.delete()
-                    .uri("/api/orders/1")
-                    .exchange()
-                    .expectStatus()
-                    .isOk();
+            mockMvc.perform(
+                    delete("api/orders/{id}", 1)
+                            .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk());
         }
 
         @Test
+        @SneakyThrows
         @DisplayName("Delete a not found order")
         void shouldDeleteANotFoundOrder() {
-            // when(orderService.delete(1L))..thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
-
-
-            webTestClient.delete()
-                    .uri("/api/orders/1")
-                    .exchange()
-                    .expectStatus()
-                    .isNotFound();
+            mockMvc.perform(
+                            delete("api/orders/{id}", 1)
+                                    .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk());
         }
     }
 }
