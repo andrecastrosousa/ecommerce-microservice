@@ -1,5 +1,7 @@
 package academy.mindswap.orderservice.controller;
 
+import academy.mindswap.orderservice.dto.OrderCreateDto;
+import academy.mindswap.orderservice.dto.OrderUpdateDto;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.service.OrderService;
 import academy.mindswap.orderservice.service.OrderServiceImpl;
@@ -14,6 +16,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -44,7 +47,7 @@ public class OrderControllerUnitTest {
                     .orderItemList(new ArrayList<>())
                     .build();
 
-            when(orderService.listAll()).thenReturn(Flux.just(order, new Order()));
+            when(orderService.listAll()).thenReturn(new ArrayList<>(List.of(order, new Order())));
 
             webTestClient.get()
                     .uri("/api/orders")
@@ -69,7 +72,7 @@ public class OrderControllerUnitTest {
                     .orderItemList(new ArrayList<>())
                     .build();
 
-            when(orderService.get(1L)).thenReturn(Mono.just(order));
+            when(orderService.get(1L)).thenReturn(order);
 
             webTestClient.get()
                     .uri("/api/orders/1")
@@ -83,7 +86,7 @@ public class OrderControllerUnitTest {
         @DisplayName("Get order successfully")
         void shouldGetOrderNotFound() {
             when(orderService.get(1L))
-                    .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
+                    .thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
 
             webTestClient.get()
                     .uri("/api/orders/1")
@@ -100,13 +103,18 @@ public class OrderControllerUnitTest {
         @Test
         @DisplayName("Create order successfully")
         void shouldCreateOrder() {
+            OrderCreateDto orderCreateDto = OrderCreateDto.builder()
+                    .orderItemList(new ArrayList<>())
+                    .total(0.0)
+                    .build();
+
             Order order = Order.builder()
                     .id(1L)
                     .total(0.0)
                     .orderItemList(new ArrayList<>())
                     .build();
 
-            when(orderService.create(order)).thenReturn(Mono.just(order));
+            when(orderService.create(orderCreateDto)).thenReturn(order);
 
             webTestClient.post()
                     .uri("/api/orders")
@@ -127,13 +135,17 @@ public class OrderControllerUnitTest {
         @Test
         @DisplayName("Update order successfully")
         void shouldUpdateOrder() {
+            OrderUpdateDto orderUpdateDto = OrderUpdateDto.builder()
+                    .total(0.0)
+                    .build();
+
             Order order = Order.builder()
                     .id(1L)
                     .total(0.0)
                     .orderItemList(new ArrayList<>())
                     .build();
 
-            when(orderService.update(order.getId(), order)).thenReturn(Mono.just(order));
+            when(orderService.update(order.getId(), orderUpdateDto)).thenReturn(order);
 
             webTestClient.put()
                     .uri("/api/orders/1")
@@ -147,14 +159,18 @@ public class OrderControllerUnitTest {
         @Test
         @DisplayName("Update order successfully")
         void shouldUpdateOrderNotFound() {
+            OrderUpdateDto orderUpdateDto = OrderUpdateDto.builder()
+                    .total(0.0)
+                    .build();
+
             Order order = Order.builder()
                     .id(1L)
                     .total(0.0)
                     .orderItemList(new ArrayList<>())
                     .build();
 
-            when(orderService.update(order.getId(), order))
-                    .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
+            when(orderService.update(order.getId(), orderUpdateDto))
+                    .thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
 
             webTestClient.put()
                     .uri("/api/orders/1")
@@ -172,8 +188,6 @@ public class OrderControllerUnitTest {
         @Test
         @DisplayName("Delete an order successfully")
         void shouldDeleteAnOrder() {
-            when(orderService.delete(1L)).thenReturn(Mono.empty());
-
             webTestClient.delete()
                     .uri("/api/orders/1")
                     .exchange()
@@ -184,8 +198,7 @@ public class OrderControllerUnitTest {
         @Test
         @DisplayName("Delete a not found order")
         void shouldDeleteANotFoundOrder() {
-            when(orderService.delete(1L))
-                    .thenReturn(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found")));
+            // when(orderService.delete(1L))..thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
 
 
             webTestClient.delete()

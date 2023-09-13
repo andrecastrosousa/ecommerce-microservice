@@ -1,14 +1,13 @@
 package academy.mindswap.orderservice.dto;
 
 import academy.mindswap.orderservice.model.OrderItem;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Data
 @RequiredArgsConstructor
+@AllArgsConstructor
 @Builder
 public class OrderCreateDto {
 

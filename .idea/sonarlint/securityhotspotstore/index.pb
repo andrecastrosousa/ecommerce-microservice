@@ -68,3 +68,9 @@ Vorder-service/src/main/java/academy/mindswap/orderservice/OrderServiceApplicati
 horder-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerIntegrationTest.java,3/a/3a6dccb7bfff75895e081f6fbd3b3f177a817036
 ‘
 aorder-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java,4/c/4c306a3a2a67db06f02c3d27083f1506df5db8e1
+—
+gcatalog-service/src/test/java/academy/mindswap/catalogservice/controller/CatalogControllerUnitTest.java,1/9/1909423109fc6ce9fdf46000244a46c1fa52e679
+‘
+acatalog-service/src/test/java/academy/mindswap/catalogservice/service/CatalogServiceUnitTest.java,0/d/0de694e57a85f328a6c39b88c6619f9b609c92a3
+‹
+[order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java,9/e/9ebe1248f2f8ce06712c4d5e70ea1ae97bbd988b
