@@ -34,8 +34,6 @@ Sorder-service/src/main/java/academy/mindswap/orderservice/service/OrderService.
 Worder-service/src/main/java/academy/mindswap/orderservice/service/OrderServiceImpl.java,0/3/036bfc8870c57acab3e8b66333275a9e2b260192
 }
 Morder-service/src/main/java/academy/mindswap/orderservice/utils/Messages.java,5/0/50b6e99741642179e54f9ca2a89d7d57fe5303c1
-‹
-[order-service/src/main/java/academy/mindswap/orderservice/config/PostgresConfiguration.java,4/5/45ce570072eb67ea11c179d1224d92f017aba5a5
 A
 init_postgres.sql,2/7/27813594303ebfa802339b9268059ec36b1867c3
 G
@@ -62,8 +60,6 @@ _catalog-service/src/main/java/academy/mindswap/catalogservice/controller/Catalo
 ]catalog-service/src/main/java/academy/mindswap/catalogservice/service/CatalogServiceImpl.java,a/7/a7b7042fdcf7c1454ecec398d4a3b9a7a38da2dd
 †
 Vorder-service/src/main/java/academy/mindswap/orderservice/OrderServiceApplication.java,1/a/1a7c556541295c6a3741d959584098d23cd2035c
-‹
-[order-service/src/test/java/academy/mindswap/orderservice/OrderServiceApplicationTests.java,a/4/a4c1c2f69f0f7392c4f7cc62bd6c9a2cada6d6f0
 ˜
 horder-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerIntegrationTest.java,3/a/3a6dccb7bfff75895e081f6fbd3b3f177a817036
 ‘
@@ -74,3 +70,5 @@ gcatalog-service/src/test/java/academy/mindswap/catalogservice/controller/Catalo
 acatalog-service/src/test/java/academy/mindswap/catalogservice/service/CatalogServiceUnitTest.java,0/d/0de694e57a85f328a6c39b88c6619f9b609c92a3
 ‹
 [order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java,9/e/9ebe1248f2f8ce06712c4d5e70ea1ae97bbd988b
+‡
+Worder-service/src/main/java/academy/mindswap/orderservice/converter/OrderConverter.java,a/5/a58cf84c7558b9b0b7e2039bafc834ffcca4ef96
