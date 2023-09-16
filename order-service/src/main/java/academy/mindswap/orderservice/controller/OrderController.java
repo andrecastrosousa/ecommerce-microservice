@@ -5,6 +5,8 @@ import academy.mindswap.orderservice.dto.OrderUpdateDto;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.service.OrderService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -17,6 +19,8 @@ public class OrderController {
 
     @GetMapping
     public List<Order> list() {
+        OAuth2User user = ((OAuth2User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        System.out.println(user);
         return orderService.listAll();
     }
 
