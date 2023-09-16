@@ -72,3 +72,7 @@ acatalog-service/src/test/java/academy/mindswap/catalogservice/service/CatalogSe
 [order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java,9/e/9ebe1248f2f8ce06712c4d5e70ea1ae97bbd988b
 ‡
 Worder-service/src/main/java/academy/mindswap/orderservice/converter/OrderConverter.java,a/5/a58cf84c7558b9b0b7e2039bafc834ffcca4ef96
+G
+auth-service/realm.json,3/c/3c938ca374d309e3f30c4a2b68386d55ea7ace5c
+‹
+[order-service/src/main/java/academy/mindswap/orderservice/config/SecurityConfiguration.java,1/5/15b84f1e99906892a0ed3963f21cf88aa75c93e6
