@@ -14,10 +14,11 @@ spring:
         oauth2:
             client:
                 registration:
-                    external:
-                        provider: springEcommerce
+                    keycloak:
                         client-id: backend-service
                         client-secret: secret
+                        scope:
+                          - openid
                 provider:
-                  external:
-                      issuer-uri: http://localhost:8091/realms/master
+                    keycloak:
+                        issuer-uri: http://localhost:8091/realms/springEcommerce
