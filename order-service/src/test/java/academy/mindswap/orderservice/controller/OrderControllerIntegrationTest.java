@@ -4,7 +4,6 @@ import academy.mindswap.orderservice.OrderServiceApplication;
 import academy.mindswap.orderservice.dto.OrderCreateDto;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.repository.OrderRepository;
-import jakarta.transaction.Transactional;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,6 +21,16 @@ public class OrderControllerIntegrationTest {
     @Autowired
     OrderRepository orderRepository;
     OrderCreateDto orderCreateDto = new OrderCreateDto();
+
+    @BeforeEach
+    public void setup() {
+        orderRepository.save(new Order());
+    }
+
+    @AfterEach
+    public void tearDown() {
+        orderRepository.deleteAll();
+    }
 
     @Nested
     @Tag("validations")
@@ -61,8 +70,8 @@ public class OrderControllerIntegrationTest {
                     .post("/api/orders")
                     .then()
                     .statusCode(HttpStatus.SC_OK)
-                    .body("id", is(1))
-                    .body("total", is(0.0F));
+                    .body("id", is(3))
+                    .body("total", is(10.0F));
         }
 
         @Test
