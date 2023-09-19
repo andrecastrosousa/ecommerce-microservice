@@ -1,5 +1,7 @@
 package academy.mindswap.authservice.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,5 +19,13 @@ public class AuthenticationController {
     @PostMapping("/register")
     public ResponseEntity<String> register() {
         return ResponseEntity.ok("adeus");
+    }
+
+    @PostMapping
+    public void refreshToken(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) {
+
     }
 }

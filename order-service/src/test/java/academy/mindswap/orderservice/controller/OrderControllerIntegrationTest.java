@@ -2,7 +2,9 @@ package academy.mindswap.orderservice.controller;
 
 import academy.mindswap.orderservice.OrderServiceApplication;
 import academy.mindswap.orderservice.dto.OrderCreateDto;
+import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.repository.OrderRepository;
+import jakarta.transaction.Transactional;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,13 +18,10 @@ import static org.hamcrest.Matchers.is;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes={OrderServiceApplication.class}, webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class OrderControllerIntegrationTest {
+
     @Autowired
     OrderRepository orderRepository;
     OrderCreateDto orderCreateDto = new OrderCreateDto();
-
-    @BeforeEach
-    public void before() {
-    }
 
     @Nested
     @Tag("validations")
@@ -54,6 +53,7 @@ public class OrderControllerIntegrationTest {
         @Test
         @DisplayName("Create an order and associate to a user")
         void post() {
+            orderCreateDto.setTotal(10.0);
             given()
                     .header("Content-Type", "application/json")
                     .body(orderCreateDto)
@@ -81,7 +81,7 @@ public class OrderControllerIntegrationTest {
             given()
                     .delete("/api/orders/1")
                     .then()
-                    .statusCode(HttpStatus.SC_NOT_FOUND);
+                    .statusCode(HttpStatus.SC_OK);
 
         }
     }

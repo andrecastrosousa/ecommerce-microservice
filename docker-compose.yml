@@ -18,7 +18,7 @@ services:
     environment:
       MONGO_INITDB_DATABASE: 'Catalog'
 
-  keycloack:
+  redis:
     image: redis/redis-stack
     ports:
       - '6379:6379'

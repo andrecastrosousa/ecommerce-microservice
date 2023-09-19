@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6f18d20-4d7b-476f-b967-c57b31380e6a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9730a2f2-db96-436c-8799-dc460c21030d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9730a2f2-db96-436c-8799-dc460c21030d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9730a2f2-db96-436c-8799-dc460c21030d/storage_v2/_src_/database/orders.5WLfww/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9730a2f2-db96-436c-8799-dc460c21030d/storage_v2/_src_/database/orders.5WLfww/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c938ca374d309e3f30c4a2b68386d55ea7ace5c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/c/3c938ca374d309e3f30c4a2b68386d55ea7ace5c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/dto/OrderCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/dto/OrderCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/model/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/service/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/academy/mindswap/orderservice/controller/OrderControllerUnitTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +38,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/auth-service" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,7 +69,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "<unknown>",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "/Users/andresousa/development/java/spring/microservice-ecommerce",
     "node.js.detected.package.eslint": "true",
@@ -62,7 +79,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "spring.configuration.checksum": "b4f44e9f3c972c71425c343b9a50f516",
+    "spring.configuration.checksum": "08d40f14507d5ae66f42a7a1826b931e",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -93,22 +110,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OrderControllerUnitTest">
-    <configuration name="CatalogControllerUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="catalog-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.catalogservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.catalogservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.catalogservice.controller.CatalogControllerUnitTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.OrderControllerIntegrationTest$ItemCrudTests.post">
     <configuration name="OrderControllerIntegrationTest$ItemCrudTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
@@ -120,6 +122,22 @@
       <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller.OrderControllerIntegrationTest" />
       <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerIntegrationTest$ItemCrudTests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderControllerIntegrationTest$ItemCrudTests.post" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller.OrderControllerIntegrationTest" />
+      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerIntegrationTest$ItemCrudTests" />
+      <option name="METHOD_NAME" value="post" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OrderControllerIntegrationTest$ItemCrudTests.post" />
+        <item itemvalue="JUnit.OrderControllerIntegrationTest" />
         <item itemvalue="JUnit.OrderControllerUnitTest" />
         <item itemvalue="JUnit.OrderServiceUnitTest" />
-        <item itemvalue="JUnit.OrderControllerIntegrationTest" />
         <item itemvalue="JUnit.OrderControllerIntegrationTest$ItemCrudTests" />
-        <item itemvalue="JUnit.CatalogControllerUnitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +234,8 @@
       <workItem from="1694674243364" duration="696000" />
       <workItem from="1694774326347" duration="11836000" />
       <workItem from="1694856362269" duration="3980000" />
-      <workItem from="1694948019905" duration="4713000" />
+      <workItem from="1694948019905" duration="5641000" />
+      <workItem from="1695035512218" duration="6508000" />
     </task>
     <servers />
   </component>
@@ -239,5 +258,16 @@
       <path value="$PROJECT_DIR$/catalog-service" />
       <path value="$PROJECT_DIR$/order-service" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-service/src/main/java/academy/mindswap/orderservice/service/OrderServiceImpl.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

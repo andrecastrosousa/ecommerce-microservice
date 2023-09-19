@@ -23,7 +23,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> listAll() {
-        return orderRepository.findAll();
+        List<Order> orders = orderRepository.findAll();
+        return orders;
     }
 
     @Override
@@ -52,11 +53,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order create(OrderCreateDto orderCreateDto) {
-        return orderRepository.save(orderConverter.toEntityFromCreateDto(orderCreateDto));
+        Order order = orderConverter.toEntityFromCreateDto(orderCreateDto);
+        orderRepository.save(order);
+        return order;
     }
 
     @Override
     public void delete(Long id) {
+        if(!orderRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND);
+        }
+
         orderRepository.deleteById(id);
     }
 }

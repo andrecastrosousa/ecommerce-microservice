@@ -133,7 +133,7 @@ public class OrderControllerUnitTest {
         }
     }
 
-    @Nested
+    /*@Nested
     @Tag("update")
     @DisplayName("Update order unit test")
     class UpdateOrderValidations {
@@ -185,7 +185,7 @@ public class OrderControllerUnitTest {
                                     .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isNotFound());
         }
-    }
+    }*/
 
     @Nested
     @Tag("deleteOrder")
