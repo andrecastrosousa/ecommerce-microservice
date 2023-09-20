@@ -4,20 +4,16 @@ import academy.mindswap.orderservice.dto.OrderCreateDto;
 import academy.mindswap.orderservice.dto.OrderUpdateDto;
 import academy.mindswap.orderservice.model.Order;
 import academy.mindswap.orderservice.service.OrderService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/orders")
 public class OrderController {
 
     private final OrderService orderService;
-
-    OrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
 
     @GetMapping
     public List<Order> list() {

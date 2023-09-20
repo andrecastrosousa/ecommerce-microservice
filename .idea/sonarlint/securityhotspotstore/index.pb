@@ -72,11 +72,11 @@ acatalog-service/src/test/java/academy/mindswap/catalogservice/service/CatalogSe
 [order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java,9/e/9ebe1248f2f8ce06712c4d5e70ea1ae97bbd988b
 á
 Worder-service/src/main/java/academy/mindswap/orderservice/converter/OrderConverter.java,a/5/a58cf84c7558b9b0b7e2039bafc834ffcca4ef96
-ã
-[order-service/src/main/java/academy/mindswap/orderservice/config/SecurityConfiguration.java,1/5/15b84f1e99906892a0ed3963f21cf88aa75c93e6
 D
 auth-service/HELP.md,0/1/01642ff8ebe12f8e29261cf656ce939373475e22
 É
 Sauth-service/src/main/java/academy/mindswap/authservice/AuthServiceApplication.java,3/a/3a4c284d285d20c990b340a1cfac60a10813f07e
 ê
 `auth-service/src/main/java/academy/mindswap/authservice/controller/AuthenticationController.java,9/4/94c493c2cd78efe06bb5ca2cb84b17638fa47cb1
+D
+auth-service/pom.xml,7/f/7f617cadbbc161fc020296c3a971388d61795426
