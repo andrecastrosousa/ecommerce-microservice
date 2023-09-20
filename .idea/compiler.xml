@@ -20,6 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="customer-service" target="17" />
       <module name="order" target="1.7" />
     </bytecodeTargetLevel>
   </component>
@@ -27,6 +28,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auth-service" options="-parameters" />
       <module name="catalog-service" options="-parameters" />
+      <module name="customer-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
     </option>
   </component>
