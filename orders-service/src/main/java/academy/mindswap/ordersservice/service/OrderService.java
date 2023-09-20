@@ -17,4 +17,6 @@ public interface OrderService {
     Order create(OrderCreateDto order);
 
     void delete(Long id);
+
+    Order process(Long id);
 }

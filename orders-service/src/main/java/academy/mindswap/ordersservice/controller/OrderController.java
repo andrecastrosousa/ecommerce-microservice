@@ -41,4 +41,8 @@ public class OrderController {
         orderService.delete(id);
     }
 
+    @PutMapping("/{id}/process")
+    public Order process(@PathVariable Long id) {
+        return orderService.process(id);
+    }
 }

@@ -22,7 +22,7 @@ This project comprises several microservices:
 - [ ] **Authentication Service (Redis)**: Provides authentication and authorization for users.
 - [x] **Catalog Service (MongoDB with Reactive Spring WebFlux)**: Manages product catalog data with a NoSQL database and leverages the reactive programming model.
 - [x] **Order Service (PostgreSQL)**: Handles order processing and management using a SQL database.
-- [ ] **Shipping Service (MySQL)**: Manages shipping and delivery information.
+- [ ] **User Service (MySQL)**: Manages user information.
 - [ ] **Event-Driven Communication (RabbitMQ)**: Implements event-driven architecture to enable communication and data synchronization between microservices.
 - [ ] **Service Discovery (Eureka)**: Offers service registration and discovery capabilities for seamless communication between microservices.
 

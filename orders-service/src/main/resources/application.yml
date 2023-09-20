@@ -10,6 +10,11 @@ spring:
         properties:
           hibernate:
               dialect: org.hibernate.dialect.PostgreSQLDialect
+    rabbitmq:
+        host: localhost
+        username: guest
+        port: 5672
+        virtual-host: /
 
 server:
     port: 8080

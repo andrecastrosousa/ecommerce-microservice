@@ -21,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -104,22 +104,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrdersServiceApplication (2)">
-    <configuration name="OrderControllerIntegrationTest$ItemCrudTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="academy.mindswap.orderservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="academy.mindswap.orderservice.controller.OrderControllerIntegrationTest" />
-      <option name="MAIN_CLASS_NAME" value="academy.mindswap.orderservice.controller.OrderControllerIntegrationTest$ItemCrudTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.OrdersServiceApplication">
     <configuration name="OrderControllerIntegrationTest$ItemCrudTests.post" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
@@ -195,30 +180,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="order-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="academy.mindswap.orderservice.OrderServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrdersServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="orders-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.ordersservice.OrdersServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrdersServiceApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="OrdersServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="orders-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="academy.mindswap.ordersservice.OrdersServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrdersServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="orders-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="academy.mindswap.orderservice.OrdersServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="academy.mindswap.ordersservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -232,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.OrdersServiceApplication" />
         <item itemvalue="JUnit.OrderControllerIntegrationTest" />
         <item itemvalue="JUnit.OrderControllerIntegrationTest$ItemCrudTests.post" />
         <item itemvalue="JUnit.OrderControllerUnitTest" />
         <item itemvalue="JUnit.OrderServiceUnitTest" />
-        <item itemvalue="JUnit.OrderControllerIntegrationTest$ItemCrudTests" />
       </list>
     </recent_temporary>
   </component>
@@ -262,7 +232,7 @@
       <workItem from="1695172727835" duration="3576000" />
       <workItem from="1695176327756" duration="461000" />
       <workItem from="1695176793457" duration="1661000" />
-      <workItem from="1695210387499" duration="2239000" />
+      <workItem from="1695210387499" duration="3966000" />
     </task>
     <servers />
   </component>
