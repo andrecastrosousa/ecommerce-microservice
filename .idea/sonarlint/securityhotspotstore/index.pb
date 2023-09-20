@@ -7,11 +7,7 @@
 B
 docker-compose.yml,3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a
 E
-order-service/HELP.md,f/c/fc556bef6fc0741bfc27f6e7c9b78d2f140e3e10
-E
 order-service/pom.xml,d/3/d3bf53ecc442740843266a635cbfe9807b992566
-G
-catalog-service/HELP.md,7/9/791950d770eeb9e8a3401c545a12554e55dffa55
 Å
 Qorder-service/src/main/java/academy/mindswap/orderservice/dto/OrderUpdateDto.java,4/4/44ccf32e7018804dc7b314733743b63fc2ba98e4
 ~
@@ -72,8 +68,6 @@ acatalog-service/src/test/java/academy/mindswap/catalogservice/service/CatalogSe
 [order-service/src/test/java/academy/mindswap/orderservice/service/OrderServiceUnitTest.java,9/e/9ebe1248f2f8ce06712c4d5e70ea1ae97bbd988b
 á
 Worder-service/src/main/java/academy/mindswap/orderservice/converter/OrderConverter.java,a/5/a58cf84c7558b9b0b7e2039bafc834ffcca4ef96
-D
-auth-service/HELP.md,0/1/01642ff8ebe12f8e29261cf656ce939373475e22
 É
 Sauth-service/src/main/java/academy/mindswap/authservice/AuthServiceApplication.java,3/a/3a4c284d285d20c990b340a1cfac60a10813f07e
 ê
