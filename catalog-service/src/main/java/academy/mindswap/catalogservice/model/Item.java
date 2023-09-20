@@ -19,6 +19,8 @@ public class Item {
 
     private double price;
 
+    private int quantity;
+
     public static ItemBuilder builder() {
         return new ItemBuilder();
     }
@@ -42,6 +44,11 @@ public class Item {
 
         public ItemBuilder price(double price) {
             item.setPrice(price);
+            return this;
+        }
+
+        public ItemBuilder quantity(int quantity) {
+            item.setQuantity(quantity);
             return this;
         }
 

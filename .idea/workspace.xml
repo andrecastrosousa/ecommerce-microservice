@@ -5,48 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6f18d20-4d7b-476f-b967-c57b31380e6a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/036bfc8870c57acab3e8b66333275a9e2b260192" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/e/0ecfb085a5868797593b9ae90216e94319a39295" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/a/1a7c556541295c6a3741d959584098d23cd2035c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3a6dccb7bfff75895e081f6fbd3b3f177a817036" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/44ccf32e7018804dc7b314733743b63fc2ba98e4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4c306a3a2a67db06f02c3d27083f1506df5db8e1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/0/50b6e99741642179e54f9ca2a89d7d57fe5303c1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/6094909c67e7fbae5400eb76707893f20777057f" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/6094909c67e7fbae5400eb76707893f20777057f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/b/6bc84512c3e82b96fcdacc0e12cb027ee3d70079" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/e/9ebe1248f2f8ce06712c4d5e70ea1ae97bbd988b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a58cf84c7558b9b0b7e2039bafc834ffcca4ef96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/4/b453795a9e3b1ac673b73dd45de62acf2ce7d5c2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/3/c32bb9c49482fdabad9e292ff4651d71def7ce88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d3bf53ecc442740843266a635cbfe9807b992566" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec87ad3fe0e7b37c7a79d02bc708919fac9a7871" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec97037359ee01a784225797caa8a5e7a62b9653" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/d/ed8eec140c056ab586af74dd81cf331aa368c2ef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/8/f8ba5134f18866dab4386c36fae477b9e2ac2a15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/3/036bfc8870c57acab3e8b66333275a9e2b260192" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/e/0ecfb085a5868797593b9ae90216e94319a39295" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/a/1a7c556541295c6a3741d959584098d23cd2035c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/a/3a6dccb7bfff75895e081f6fbd3b3f177a817036" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/4/44ccf32e7018804dc7b314733743b63fc2ba98e4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/c/4c306a3a2a67db06f02c3d27083f1506df5db8e1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/0/50b6e99741642179e54f9ca2a89d7d57fe5303c1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/b/6bc84512c3e82b96fcdacc0e12cb027ee3d70079" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/e/9ebe1248f2f8ce06712c4d5e70ea1ae97bbd988b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/5/a58cf84c7558b9b0b7e2039bafc834ffcca4ef96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/4/b453795a9e3b1ac673b73dd45de62acf2ce7d5c2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/3/c32bb9c49482fdabad9e292ff4651d71def7ce88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/3/d3bf53ecc442740843266a635cbfe9807b992566" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/c/ec87ad3fe0e7b37c7a79d02bc708919fac9a7871" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/c/ec97037359ee01a784225797caa8a5e7a62b9653" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/d/ed8eec140c056ab586af74dd81cf331aa368c2ef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/8/f8ba5134f18866dab4386c36fae477b9e2ac2a15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/convert/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/convert/ItemConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/dto/ItemCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/dto/ItemCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/dto/ItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/dto/ItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/dto/ItemUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/dto/ItemUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/service/CatalogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/academy/mindswap/catalogservice/service/CatalogServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +262,7 @@
       <workItem from="1695172727835" duration="3576000" />
       <workItem from="1695176327756" duration="461000" />
       <workItem from="1695176793457" duration="1661000" />
-      <workItem from="1695210387499" duration="845000" />
+      <workItem from="1695210387499" duration="2239000" />
     </task>
     <servers />
   </component>

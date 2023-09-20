@@ -13,6 +13,7 @@ public class ItemConverter {
                 .id(item.getId())
                 .price(item.getPrice())
                 .name(item.getName())
+                .quantity(item.getQuantity())
                 .build();
     }
 
@@ -21,6 +22,7 @@ public class ItemConverter {
                 .id(itemDto.getId())
                 .name(itemDto.getName())
                 .price(itemDto.getPrice())
+                .quantity(itemDto.getQuantity())
                 .build();
     }
 
@@ -28,6 +30,7 @@ public class ItemConverter {
         return Item.builder()
                 .name(itemCreateDto.getName())
                 .price(itemCreateDto.getPrice())
+                .quantity(itemCreateDto.getQuantity())
                 .build();
     }
 
@@ -35,6 +38,7 @@ public class ItemConverter {
         return Item.builder()
                 .name(itemUpdateDto.getName())
                 .price(itemUpdateDto.getPrice())
+                .quantity(itemUpdateDto.getQuantity())
                 .build();
     }
 }

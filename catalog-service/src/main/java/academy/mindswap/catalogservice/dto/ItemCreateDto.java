@@ -12,4 +12,5 @@ import lombok.RequiredArgsConstructor;
 public class ItemCreateDto {
     private String name;
     private double price;
+    private int quantity;
 }

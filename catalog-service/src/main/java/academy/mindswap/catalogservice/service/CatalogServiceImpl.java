@@ -50,6 +50,7 @@ public class CatalogServiceImpl implements CatalogService {
                     Item item = itemConverter.toEntityFromUpdateDto(itemUpdateDto);
                     foundItem.setPrice(item.getPrice());
                     foundItem.setName(item.getName());
+                    foundItem.setQuantity(item.getQuantity());
                     return catalogRepository.save(foundItem);
                 }
         );

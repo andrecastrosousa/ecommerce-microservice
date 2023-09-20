@@ -14,4 +14,5 @@ public class ItemDto {
     private ObjectId id;
     private String name;
     private double price;
+    private int quantity;
 }

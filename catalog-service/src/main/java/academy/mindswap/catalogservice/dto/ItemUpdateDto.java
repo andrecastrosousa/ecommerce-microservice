@@ -9,4 +9,5 @@ import lombok.*;
 public class ItemUpdateDto {
     private String name;
     private double price;
+    private int quantity;
 }
