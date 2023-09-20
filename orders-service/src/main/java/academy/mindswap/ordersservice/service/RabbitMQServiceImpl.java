@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RabbitMQServiceImpl implements RabbitMQService {
+    static final String TOPIC_EXCHANGE_NAME = "exchange";
+
     static final String QUEUE_NAME = "order-process";
 
     private final RabbitTemplate rabbitTemplate;
@@ -23,6 +25,8 @@ public class RabbitMQServiceImpl implements RabbitMQService {
         ObjectMapper objectMapper = new ObjectMapper();
         String queuePlayloadString = objectMapper.writeValueAsString(order);
 
-        rabbitTemplate.convertAndSend(QUEUE_NAME, queuePlayloadString);
+        // rabbitTemplate.convertAndSend(QUEUE_NAME, queuePlayloadString);
+        rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, "foo.bar.baz", queuePlayloadString);
+        System.out.println(queuePlayloadString);
     }
 }

@@ -6,6 +6,7 @@ import academy.mindswap.ordersservice.dto.OrderUpdateDto;
 import academy.mindswap.ordersservice.model.Order;
 import academy.mindswap.ordersservice.repository.OrderRepository;
 import academy.mindswap.ordersservice.utils.Messages;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import java.util.Optional;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
+    private final RabbitMQService rabbitMQService;
     private final OrderConverter orderConverter;
 
     @Override
@@ -68,7 +70,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order process(Long id) {
-        return null;
+    public Order process(Long id) throws JsonProcessingException {
+        Optional<Order> optionalOrder = orderRepository.findById(id);
+        if(optionalOrder.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND);
+        }
+        rabbitMQService.removeStock(optionalOrder.get());
+        return optionalOrder.get();
     }
 }

@@ -4,6 +4,7 @@ import academy.mindswap.ordersservice.dto.OrderUpdateDto;
 import academy.mindswap.ordersservice.model.Order;
 import academy.mindswap.ordersservice.dto.OrderCreateDto;
 import academy.mindswap.ordersservice.service.OrderService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,7 +43,7 @@ public class OrderController {
     }
 
     @PutMapping("/{id}/process")
-    public Order process(@PathVariable Long id) {
+    public Order process(@PathVariable Long id) throws JsonProcessingException {
         return orderService.process(id);
     }
 }

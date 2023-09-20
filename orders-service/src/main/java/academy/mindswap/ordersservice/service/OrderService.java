@@ -4,6 +4,7 @@ package academy.mindswap.ordersservice.service;
 import academy.mindswap.ordersservice.dto.OrderUpdateDto;
 import academy.mindswap.ordersservice.model.Order;
 import academy.mindswap.ordersservice.dto.OrderCreateDto;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
 
@@ -18,5 +19,5 @@ public interface OrderService {
 
     void delete(Long id);
 
-    Order process(Long id);
+    Order process(Long id) throws JsonProcessingException;
 }
