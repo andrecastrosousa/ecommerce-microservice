@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6f18d20-4d7b-476f-b967-c57b31380e6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/orders-service/orders-service/src/main/java/academy/mindswap/ordersservice/OrdersServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders-service/orders-service/src/test/java/academy/mindswap/ordersservice/OrdersServiceApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9730a2f2-db96-436c-8799-dc460c21030d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9730a2f2-db96-436c-8799-dc460c21030d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1a06fa7-5a88-46c4-abaf-e416fbc17adb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d1a06fa7-5a88-46c4-abaf-e416fbc17adb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders-service/src/test/java/academy/mindswap/ordersservice/service/OrderServiceUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/orders-service/src/test/java/academy/mindswap/ordersservice/service/OrderServiceUnitTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,18 +28,6 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -44,7 +37,8 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/orders-service" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -76,9 +70,9 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "android.gradle.sync.needed": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "<unknown>",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "/Users/andresousa/development/java/spring/ecommerce-microservice",
+    "last_opened_file_path": "/Users/andresousa/development/java/spring/ecommerce-microservice/orders-service/src/test/java/academy/mindswap/ordersservice",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -86,7 +80,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "spring.configuration.checksum": "08d40f14507d5ae66f42a7a1826b931e",
+    "spring.configuration.checksum": "3250fda3cd8e876326df1a12e3b45f4b",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -101,6 +95,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/orders-service/src/test/java/academy/mindswap/ordersservice" />
+      <recent name="$PROJECT_DIR$/orders-service/src/main/resources" />
+      <recent name="$PROJECT_DIR$/orders-service/src/main/java/com/example/ordersservice" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -117,7 +114,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderServiceApplication">
+  <component name="RunManager" selected="Spring Boot.OrdersServiceApplication (2)">
     <configuration name="OrderControllerIntegrationTest$ItemCrudTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-service" />
       <extension name="coverage">
@@ -215,6 +212,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OrdersServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="orders-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.ordersservice.OrdersServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrdersServiceApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="orders-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="academy.mindswap.ordersservice.OrdersServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrdersServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="orders-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="academy.mindswap.orderservice.OrdersServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="user-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="academy.mindswap.userservice.UserServiceApplication" />
@@ -251,7 +269,9 @@
       <workItem from="1694948019905" duration="5641000" />
       <workItem from="1695035512218" duration="8008000" />
       <workItem from="1695170145135" duration="1354000" />
-      <workItem from="1695172727835" duration="3217000" />
+      <workItem from="1695172727835" duration="3576000" />
+      <workItem from="1695176327756" duration="461000" />
+      <workItem from="1695176793457" duration="889000" />
     </task>
     <servers />
   </component>
