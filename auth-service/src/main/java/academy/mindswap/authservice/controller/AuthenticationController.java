@@ -34,12 +34,12 @@ public class AuthenticationController {
     }
 
     @PostMapping("/refreshToken")
-    public ResponseEntity<Token> refreshToken(AuthenticationRequest authenticationRequest) {
+    public ResponseEntity<Token> refreshToken(@RequestBody AuthenticationRequest authenticationRequest) {
         return ResponseEntity.ok(authenticationService.refreshToken(authenticationRequest));
     }
 
     @PostMapping("/token")
-    public ResponseEntity<Token> verifyToken(TokenValidationRequest tokenValidationRequest) {
+    public ResponseEntity<Token> verifyToken(@RequestBody TokenValidationRequest tokenValidationRequest) {
         return ResponseEntity.ok(authenticationService.verify(tokenValidationRequest));
     }
 }

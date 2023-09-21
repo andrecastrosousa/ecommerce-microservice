@@ -60,7 +60,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Token verify(TokenValidationRequest tokenValidationRequest) {
         Token token = authenticationRepository.findById(tokenValidationRequest.username()).orElse(null);
-        if(token == null) {
+        if(token == null || !token.getToken().equals(tokenValidationRequest.token())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not authorized");
         }
 
