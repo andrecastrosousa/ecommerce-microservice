@@ -1,6 +1,7 @@
 package academy.mindswap.authservice.controller;
 
 import academy.mindswap.authservice.dto.AuthenticationRequest;
+import academy.mindswap.authservice.dto.TokenValidationRequest;
 import academy.mindswap.authservice.model.Token;
 import academy.mindswap.authservice.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,7 +35,11 @@ public class AuthenticationController {
 
     @PostMapping("/refreshToken")
     public ResponseEntity<Token> refreshToken(AuthenticationRequest authenticationRequest) {
-
         return ResponseEntity.ok(authenticationService.refreshToken(authenticationRequest));
+    }
+
+    @PostMapping("/token")
+    public ResponseEntity<Token> verifyToken(TokenValidationRequest tokenValidationRequest) {
+        return ResponseEntity.ok(authenticationService.verify(tokenValidationRequest));
     }
 }

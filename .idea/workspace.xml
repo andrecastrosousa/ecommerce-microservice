@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6f18d20-4d7b-476f-b967-c57b31380e6a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/94c493c2cd78efe06bb5ca2cb84b17638fa47cb1" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/94c493c2cd78efe06bb5ca2cb84b17638fa47cb1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac28cfe271f05c4475944fa3234bc224629f0f3a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac28cfe271f05c4475944fa3234bc224629f0f3a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/academy/mindswap/authservice/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/academy/mindswap/authservice/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/academy/mindswap/authservice/repository/AuthenticationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/academy/mindswap/authservice/repository/AuthenticationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/academy/mindswap/authservice/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/academy/mindswap/authservice/service/AuthenticationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/academy/mindswap/authservice/service/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/academy/mindswap/authservice/service/AuthenticationServiceImpl.java" afterDir="false" />
     </list>
@@ -231,7 +234,8 @@
       <workItem from="1695176327756" duration="461000" />
       <workItem from="1695176793457" duration="1661000" />
       <workItem from="1695210387499" duration="12776000" />
-      <workItem from="1695256750322" duration="3513000" />
+      <workItem from="1695256750322" duration="3776000" />
+      <workItem from="1695312944575" duration="1624000" />
     </task>
     <servers />
   </component>
