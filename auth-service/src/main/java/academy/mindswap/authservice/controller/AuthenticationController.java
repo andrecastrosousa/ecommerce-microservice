@@ -8,24 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("")
 public class AuthenticationController {
 
-    @PostMapping("/login")
+    @PostMapping("/authenticate")
     public ResponseEntity<String> login() {
         return ResponseEntity.ok("olá");
     }
 
-    @PostMapping("/register")
+    @PostMapping("/logout")
     public ResponseEntity<String> register() {
         return ResponseEntity.ok("adeus");
     }
 
-    @PostMapping
-    public void refreshToken(
-            HttpServletRequest request,
-            HttpServletResponse response
-    ) {
-
+    @PostMapping("/refreshToken")
+    public ResponseEntity<String> refreshToken() {
+        return ResponseEntity.ok("adeus");
     }
 }
