@@ -6,7 +6,7 @@ import academy.mindswap.authservice.model.Token;
 import java.io.IOException;
 
 public interface AuthenticationService {
-    Token authenticate(AuthenticationRequest authenticationRequest) throws IOException;
+    Token authenticate(AuthenticationRequest authenticationRequest);
     void logout(AuthenticationRequest authenticationRequest);
     Token refreshToken(AuthenticationRequest authenticationRequest);
 }

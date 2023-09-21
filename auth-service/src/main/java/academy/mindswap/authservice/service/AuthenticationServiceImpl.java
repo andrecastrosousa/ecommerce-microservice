@@ -34,11 +34,21 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public void logout(AuthenticationRequest authenticationRequest) {
-
+        authenticationRepository.deleteById(authenticationRequest.username());
     }
 
     @Override
     public Token refreshToken(AuthenticationRequest authenticationRequest) {
-        return null;
+        authenticationRepository.deleteById(authenticationRequest.username());
+
+        String jwtToken = jwtService.generateToken(authenticationRequest.username());
+        String refreshToken = jwtService.generateRefreshToken(authenticationRequest.username());
+        Token token = Token.builder()
+                .id(authenticationRequest.username())
+                .token(jwtToken)
+                .refreshToken(refreshToken).build();
+
+        authenticationRepository.save(token);
+        return token;
     }
 }
