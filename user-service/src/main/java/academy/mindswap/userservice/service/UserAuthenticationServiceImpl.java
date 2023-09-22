@@ -54,7 +54,10 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
 
     @Override
     public User register(RegistrationRequest registrationRequest) {
-        User user = userRepository.save(authenticationConverter.toEntityFromRegistration(registrationRequest));
+        User user = authenticationConverter.toEntityFromRegistration(registrationRequest);
+        // TODO: Endpoint to add balance instead of define this value, this will help to test buy an order
+        user.setBalance(1000);
+        userRepository.save(user);
 
         Mono<TokenResponse> tokenResponse = webClient
                 .post()

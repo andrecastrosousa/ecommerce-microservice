@@ -21,6 +21,8 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItemList;
 
+    private String email;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

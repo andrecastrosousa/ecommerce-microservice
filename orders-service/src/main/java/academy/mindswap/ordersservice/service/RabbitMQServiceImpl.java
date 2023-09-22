@@ -23,10 +23,12 @@ public class RabbitMQServiceImpl implements RabbitMQService {
     @Override
     public void removeStock(Order order) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
+
+        // TODO: it will replace when token will be use
+        order.setEmail("test@gmail.com");
+
         String queuePlayloadString = objectMapper.writeValueAsString(order);
 
-        // rabbitTemplate.convertAndSend(QUEUE_NAME, queuePlayloadString);
         rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, "foo.bar.baz", queuePlayloadString);
-        System.out.println(queuePlayloadString);
     }
 }
