@@ -2,6 +2,7 @@ package academy.mindswap.ordersservice.service;
 
 
 import academy.mindswap.ordersservice.dto.OrderUpdateDto;
+import academy.mindswap.ordersservice.exceptions.OrderStatusCannotBePerformedException;
 import academy.mindswap.ordersservice.model.Order;
 import academy.mindswap.ordersservice.dto.OrderCreateDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,5 +20,5 @@ public interface OrderService {
 
     void delete(Long id);
 
-    Order process(Long id) throws JsonProcessingException;
+    Order process(Long id) throws JsonProcessingException, OrderStatusCannotBePerformedException;
 }

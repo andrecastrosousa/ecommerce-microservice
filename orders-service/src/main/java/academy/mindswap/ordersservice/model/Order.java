@@ -1,5 +1,6 @@
 package academy.mindswap.ordersservice.model;
 
+import academy.mindswap.ordersservice.model.status.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,9 @@ public class Order {
     private List<OrderItem> orderItemList;
 
     private String email;
+
+    @Enumerated
+    private OrderStatus status;
 
     @Override
     public boolean equals(Object o) {
@@ -61,6 +65,11 @@ public class Order {
 
         public OrderBuilder orderItemList(List<OrderItem> orderItemList) {
             order.setOrderItemList(orderItemList);
+            return this;
+        }
+
+        public OrderBuilder status(OrderStatus status) {
+            order.setStatus(status);
             return this;
         }
 

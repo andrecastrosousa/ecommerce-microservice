@@ -3,7 +3,10 @@ package academy.mindswap.ordersservice.service;
 import academy.mindswap.ordersservice.converter.OrderConverter;
 import academy.mindswap.ordersservice.dto.OrderCreateDto;
 import academy.mindswap.ordersservice.dto.OrderUpdateDto;
+import academy.mindswap.ordersservice.exceptions.OrderStatusCannotBePerformedException;
 import academy.mindswap.ordersservice.model.Order;
+import academy.mindswap.ordersservice.model.status.OrderState;
+import academy.mindswap.ordersservice.model.status.OrderStatus;
 import academy.mindswap.ordersservice.repository.OrderRepository;
 import academy.mindswap.ordersservice.utils.Messages;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -70,12 +73,22 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order process(Long id) throws JsonProcessingException {
+    public Order process(Long id) throws JsonProcessingException, OrderStatusCannotBePerformedException {
         Optional<Order> optionalOrder = orderRepository.findById(id);
         if(optionalOrder.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, Messages.ORDER_NOT_FOUND);
         }
-        rabbitMQService.removeStock(optionalOrder.get());
-        return optionalOrder.get();
+
+        Order order = optionalOrder.get();
+        if (!order.getStatus().equals(OrderStatus.PENDING)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Order isn't in Pending status");
+        }
+
+        rabbitMQService.removeStock(order);
+
+        OrderState.buildState(order).next();
+        orderRepository.save(order);
+
+        return order;
     }
 }

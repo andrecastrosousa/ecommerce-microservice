@@ -1,6 +1,8 @@
 package academy.mindswap.ordersservice.service;
 
+import academy.mindswap.ordersservice.exceptions.OrderStatusCannotBePerformedException;
 import academy.mindswap.ordersservice.model.Order;
+import academy.mindswap.ordersservice.model.status.OrderState;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -21,7 +23,7 @@ public class RabbitMQServiceImpl implements RabbitMQService {
     }
 
     @Override
-    public void removeStock(Order order) throws JsonProcessingException {
+    public void removeStock(Order order) throws JsonProcessingException, OrderStatusCannotBePerformedException {
         ObjectMapper objectMapper = new ObjectMapper();
 
         // TODO: it will replace when token will be use

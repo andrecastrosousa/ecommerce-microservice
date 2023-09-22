@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6f18d20-4d7b-476f-b967-c57b31380e6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/exceptions/OrderStatusCannotBePerformedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/status/OrderCancelled.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/status/OrderDelivered.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/status/OrderPending.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/status/OrderProcessing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/status/OrderState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/status/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/status/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/converter/OrderConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/converter/OrderConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/service/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/service/RabbitMQService.java" beforeDir="false" afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/service/RabbitMQService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/service/RabbitMQServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/orders-service/src/main/java/academy/mindswap/ordersservice/service/RabbitMQServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/consumer/UserRegisteredListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/consumer/UserRegisteredListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/dto/OrderProcessedPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/dto/OrderProcessedPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/service/UserAuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/academy/mindswap/userservice/service/UserAuthenticationServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -236,7 +244,7 @@
       <workItem from="1695210387499" duration="12776000" />
       <workItem from="1695256750322" duration="3776000" />
       <workItem from="1695312944575" duration="3030000" />
-      <workItem from="1695376275984" duration="3748000" />
+      <workItem from="1695376275984" duration="5107000" />
     </task>
     <servers />
   </component>
