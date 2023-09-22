@@ -1,5 +1,6 @@
 package academy.mindswap.userservice.service;
 
+import academy.mindswap.userservice.converter.AuthenticationConverter;
 import academy.mindswap.userservice.dto.LoginRequest;
 import academy.mindswap.userservice.dto.RegistrationRequest;
 import academy.mindswap.userservice.dto.TokenRequest;
@@ -21,11 +22,13 @@ import java.util.Optional;
 public class UserAuthenticationServiceImpl implements UserAuthenticationService {
     private final UserRepository userRepository;
     private final WebClient webClient;
+    private final AuthenticationConverter authenticationConverter;
 
     @Autowired
-    UserAuthenticationServiceImpl(UserRepository userRepository, WebClient webClient) {
+    UserAuthenticationServiceImpl(UserRepository userRepository, WebClient webClient, AuthenticationConverter authenticationConverter) {
         this.userRepository = userRepository;
         this.webClient = webClient;
+        this.authenticationConverter = authenticationConverter;
     }
 
     @Override
@@ -51,6 +54,18 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
 
     @Override
     public User register(RegistrationRequest registrationRequest) {
-        return null;
+        User user = userRepository.save(authenticationConverter.toEntityFromRegistration(registrationRequest));
+
+        Mono<TokenResponse> tokenResponse = webClient
+                .post()
+                .uri("/authenticate")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .body(new TokenRequest(user.getEmail()), TokenRequest.class)
+                .retrieve()
+                .bodyToMono(TokenResponse.class);
+
+        tokenResponse.subscribe();
+
+        return user;
     }
 }
