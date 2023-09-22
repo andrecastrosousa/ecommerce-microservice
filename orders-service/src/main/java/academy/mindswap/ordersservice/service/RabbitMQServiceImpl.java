@@ -2,7 +2,6 @@ package academy.mindswap.ordersservice.service;
 
 import academy.mindswap.ordersservice.exceptions.OrderStatusCannotBePerformedException;
 import academy.mindswap.ordersservice.model.Order;
-import academy.mindswap.ordersservice.model.status.OrderState;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

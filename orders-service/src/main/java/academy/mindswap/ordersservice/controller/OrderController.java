@@ -1,6 +1,7 @@
 package academy.mindswap.ordersservice.controller;
 
 import academy.mindswap.ordersservice.dto.OrderUpdateDto;
+import academy.mindswap.ordersservice.exceptions.OrderStatusCannotBePerformedException;
 import academy.mindswap.ordersservice.model.Order;
 import academy.mindswap.ordersservice.dto.OrderCreateDto;
 import academy.mindswap.ordersservice.service.OrderService;
@@ -43,7 +44,7 @@ public class OrderController {
     }
 
     @PutMapping("/{id}/process")
-    public Order process(@PathVariable Long id) throws JsonProcessingException {
+    public Order process(@PathVariable Long id) throws JsonProcessingException, OrderStatusCannotBePerformedException {
         return orderService.process(id);
     }
 }

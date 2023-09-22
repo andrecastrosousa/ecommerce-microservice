@@ -4,8 +4,6 @@ import academy.mindswap.authservice.dto.AuthenticationRequest;
 import academy.mindswap.authservice.dto.TokenValidationRequest;
 import academy.mindswap.authservice.model.Token;
 import academy.mindswap.authservice.service.AuthenticationService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
