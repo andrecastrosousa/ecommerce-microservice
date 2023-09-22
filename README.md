@@ -19,7 +19,7 @@ The "Ecommerce Microservice" project is an example of a microservices-based arch
 ## Services
 This project comprises several microservices:
 
-- [ ] **Authentication Service (Redis)**: Provides authentication and authorization for users.
+- [x] **Authentication Service (Redis)**: Provides authentication and authorization for users.
 - [x] **Catalog Service (MongoDB with Reactive Spring WebFlux)**: Manages product catalog data with a NoSQL database and leverages the reactive programming model.
 - [x] **Order Service (PostgreSQL)**: Handles order processing and management using a SQL database.
 - [ ] **User Service (MySQL)**: Manages user information.

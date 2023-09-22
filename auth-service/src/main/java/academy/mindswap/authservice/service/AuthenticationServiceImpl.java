@@ -25,8 +25,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Token authenticate(AuthenticationRequest authenticationRequest) {
+        Token tokenFound = authenticationRepository.findById(authenticationRequest.username()).orElse(null);
+        if(tokenFound != null) {
+            return tokenFound;
+        }
+
         String jwtToken = jwtService.generateToken(authenticationRequest.username());
         String refreshToken = jwtService.generateRefreshToken(authenticationRequest.username());
+
         Token token = Token.builder()
                 .id(authenticationRequest.username())
                 .token(jwtToken)

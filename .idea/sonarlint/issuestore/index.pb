@@ -128,3 +128,7 @@ Zauth-service/src/main/java/academy/mindswap/authservice/service/AuthenticationS
 ^auth-service/src/main/java/academy/mindswap/authservice/service/AuthenticationServiceImpl.java,3/c/3cbd9bfa1ab8ca3d13b5dca181c7c48e55a3e821
 ~
 Nauth-service/src/main/java/academy/mindswap/authservice/config/JwtService.java,2/0/20263da21f7ff7a260897f79b589dba257587dfc
+‡
+Wauth-service/src/main/java/academy/mindswap/authservice/dto/TokenValidationRequest.java,1/2/12b3352827af8cffc71a60b477521f54d90e4d66
+‰
+Yauth-service/src/main/java/academy/mindswap/authservice/config/SecurityConfiguration.java,4/8/48b8a422176a10d750556e1e42daa8d6ba0ec05d
