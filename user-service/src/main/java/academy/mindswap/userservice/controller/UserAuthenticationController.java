@@ -25,6 +25,7 @@ public class UserAuthenticationController {
         return userAuthenticationService.login(loginRequest);
     }
 
+    @PostMapping("/register")
     public User register(@RequestBody RegistrationRequest registrationRequest) {
         return userAuthenticationService.register(registrationRequest);
     }

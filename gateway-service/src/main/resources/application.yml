@@ -1,5 +1,9 @@
 server:
   port: 8090
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
 spring:
   application:
     name: API-GATEWAY-SERVICE
@@ -10,3 +14,14 @@ spring:
           uri: http://localhost:8081
           predicates:
             - Path=/api/items/**
+        - id: ORDER-SERVICE
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/orders/**
+        - id: USER-SERVICE
+          uri:
+            http://localhost:8083
+          predicates:
+            - Path=/api/users/**
+            - Path=/login
+            - Path=/register
