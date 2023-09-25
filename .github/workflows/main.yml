@@ -3,7 +3,7 @@ name: Java CI
 on: [push]
 
 jobs:
-  build:
+  build-auth-servicec:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -12,4 +12,4 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - run: mvn --batch-mode --update-snapshots verify -DskipTests
+      - run: cd auth-service && mvn --batch-mode --update-snapshots verify -DskipTests
