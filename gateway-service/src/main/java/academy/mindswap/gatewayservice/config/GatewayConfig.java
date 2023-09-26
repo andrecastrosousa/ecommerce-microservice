@@ -38,7 +38,7 @@ public class GatewayConfig {
                 .route("AUTH-SERVICE", r -> r
                         .path("/authenticate", "/token")
                         .filters(f -> f.filter(filter))
-                        .uri("http://localhost/8082/**"))
+                        .uri("lb://**"))
                 .build();
     }
 }
