@@ -24,8 +24,8 @@ This project comprises several microservices:
 - [x] **Order Service (PostgreSQL)**: Handles order processing and management using a SQL database.
 - [x] **User Service (MySQL)**: Manages user information.
 - [x] **Event-Driven Communication (RabbitMQ)**: Implements event-driven architecture to enable communication and data synchronization between microservices.
-- [ ] **Service Discovery (Eureka)**: Offers service registration and discovery capabilities for seamless communication between microservices.
-
+- [x] **Service Discovery (Eureka)**: Offers service registration and discovery capabilities for seamless communication between microservices.
+- [x] **API Gateway**: Serves as an entry point to the microservices architecture, routing and managing incoming HTTP requests to the appropriate microservices.
 ##  Technologies Used
 The project utilizes the following technologies:
 
@@ -36,6 +36,7 @@ The project utilizes the following technologies:
 - **MySQL**: For the shipping service.
 - **RabbitMQ**: For event-driven communication.
 - **Eureka**: For service discovery.
+- **API Gateway**: For routing and managing incoming HTTP requests to the appropriate microservices.
 - **Docker**: For containerization and managing dependencies.
 
 ## Getting Started
