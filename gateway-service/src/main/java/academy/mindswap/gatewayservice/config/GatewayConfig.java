@@ -15,10 +15,22 @@ public class GatewayConfig {
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("auth", r -> r
+                .route("USER-SERVICE", r -> r
+                        .path("/api/users/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost/8090/api/users/**"))
+                .route("ORDER-SERVICE", r -> r
+                        .path("/api/orders/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost/8090/api/orders/**"))
+                .route("CATALOG-SERVICE", r -> r
+                        .path("/api/items/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost/8090/api/items/**"))
+                .route("AUTH-SERVICE", r -> r
                         .path("/api/**")
                         .filters(f -> f.filter(filter))
-                        .uri("http://localhost/8090/api/**"))
+                        .uri("http://localhost/8090/api/users/**"))
                 .build();
     }
 }

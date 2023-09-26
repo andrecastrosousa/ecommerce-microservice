@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.server.ServerHttpRequest;
-import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -20,33 +20,28 @@ public class JwtAuthenticationFilter implements GatewayFilter {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        ServerHttpRequest request = (ServerHttpRequest) exchange.getRequest();
+        ServerHttpRequest request = exchange.getRequest();
 
         final List<String> apiEndpoints = List.of("/register", "/login");
 
         Predicate<ServerHttpRequest> isApiSecured = r -> apiEndpoints.stream().noneMatch(uri -> r.getURI().getPath().contains(uri));
 
         if (isApiSecured.test(request)) {
-            if (!request.getHeaders().containsKey("Authorization")) {
-                ServerHttpResponse response = (ServerHttpResponse) exchange.getResponse();
+            final String authHeader = request.getHeaders().getOrEmpty("Authorization").get(0);
+            if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
+                ServerHttpResponse response = exchange.getResponse();
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            } else {
+                final String jwt = authHeader.substring(7);
 
-                return chain.filter(exchange);
+                if(!jwtService.isTokenValid(jwt)) {
+                    ServerHttpResponse response = exchange.getResponse();
+                    response.setStatusCode(HttpStatus.FORBIDDEN);
+                }
+
+                // Claims claims = jwtService.extractClaim(token);
+                // exchange.getRequest().mutate().header("id", String.valueOf(claims.get("id"))).build();
             }
-
-            final String token = request.getHeaders().getOrEmpty("Authorization").get(0);
-
-
-            if(!jwtService.isTokenValid(token)) {
-                ServerHttpResponse response = (ServerHttpResponse) exchange.getResponse();
-                response.setStatusCode(HttpStatus.FORBIDDEN);
-
-                return chain.filter(exchange);
-            }
-
-            // Claims claims = jwtService.extractClaim(token);
-            // exchange.getRequest().mutate().header("id", String.valueOf(claims.get("id"))).build();
-
         }
 
         return chain.filter(exchange);
