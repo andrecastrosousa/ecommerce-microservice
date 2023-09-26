@@ -18,19 +18,27 @@ public class GatewayConfig {
                 .route("USER-SERVICE", r -> r
                         .path("/api/users/**")
                         .filters(f -> f.filter(filter))
-                        .uri("http://localhost/8090/api/users/**"))
+                        .uri("http://localhost/8083/api/users/**"))
+                .route("USER-SERVICE-AUTH", r -> r
+                        .path("/login", "/register")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost/8083/**"))
                 .route("ORDER-SERVICE", r -> r
                         .path("/api/orders/**")
                         .filters(f -> f.filter(filter))
-                        .uri("http://localhost/8090/api/orders/**"))
+                        .uri("http://localhost/8080/api/orders/**"))
                 .route("CATALOG-SERVICE", r -> r
                         .path("/api/items/**")
                         .filters(f -> f.filter(filter))
-                        .uri("http://localhost/8090/api/items/**"))
-                .route("AUTH-SERVICE", r -> r
-                        .path("/api/**")
+                        .uri("http://localhost/8081/api/items/**"))
+                .route("AUTH-SERVICE-LOGOUT", r -> r
+                        .path("/logout")
                         .filters(f -> f.filter(filter))
-                        .uri("http://localhost/8090/api/users/**"))
+                        .uri("http://localhost/8082/logout"))
+                .route("AUTH-SERVICE", r -> r
+                        .path("/authenticate", "/token")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost/8082/**"))
                 .build();
     }
 }

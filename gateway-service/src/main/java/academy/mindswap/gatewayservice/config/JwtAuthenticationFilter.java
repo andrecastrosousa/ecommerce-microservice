@@ -31,17 +31,19 @@ public class JwtAuthenticationFilter implements GatewayFilter {
             if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
                 ServerHttpResponse response = exchange.getResponse();
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
-            } else {
-                final String jwt = authHeader.substring(7);
 
-                if(!jwtService.isTokenValid(jwt)) {
-                    ServerHttpResponse response = exchange.getResponse();
-                    response.setStatusCode(HttpStatus.FORBIDDEN);
-                }
+                return response.setComplete();
+            }
+            final String jwt = authHeader.substring(7);
+
+            if(!jwtService.isTokenValid(jwt)) {
+                ServerHttpResponse response = exchange.getResponse();
+                response.setStatusCode(HttpStatus.FORBIDDEN);
+                return response.setComplete();
+            }
 
                 // Claims claims = jwtService.extractClaim(token);
                 // exchange.getRequest().mutate().header("id", String.valueOf(claims.get("id"))).build();
-            }
         }
 
         return chain.filter(exchange);

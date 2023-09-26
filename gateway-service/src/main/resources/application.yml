@@ -7,21 +7,3 @@ application:
 spring:
   application:
     name: API-GATEWAY-SERVICE
-  cloud:
-    gateway:
-      routes:
-        - id: CATALOG-SERVICE
-          uri: http://localhost:8081
-          predicates:
-            - Path=/api/items/**
-        - id: ORDER-SERVICE
-          uri: http://localhost:8080
-          predicates:
-            - Path=/api/orders/**
-        - id: USER-SERVICE
-          uri:
-            http://localhost:8083
-          predicates:
-            - Path=/api/users/**
-            - Path=/login
-            - Path=/register
