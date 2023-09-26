@@ -14,10 +14,17 @@ spring:
     password: guest
     port: 5672
     virtual-host: /
+  application:
+    name: users-service
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 auth-service:
   base:
     url: "http://localhost:8082"
-
 server:
   port: 8083
+
+
