@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -15,8 +18,14 @@ import java.util.function.Predicate;
 
 @Component
 public class JwtAuthenticationFilter implements GatewayFilter {
+    private final JwtService jwtService;
+    private final WebClient webClient;
+
     @Autowired
-    private JwtService jwtService;
+    JwtAuthenticationFilter(JwtService jwtService, WebClient webClient) {
+        this.jwtService = jwtService;
+        this.webClient = webClient;
+    }
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -42,8 +51,19 @@ public class JwtAuthenticationFilter implements GatewayFilter {
                 return response.setComplete();
             }
 
-                // Claims claims = jwtService.extractClaim(token);
-                // exchange.getRequest().mutate().header("id", String.valueOf(claims.get("id"))).build();
+            return webClient.get()
+                    .uri("/token")
+                    .header("Authorization", jwt)
+                    .exchangeToMono(responseHandler -> {
+                        if(!responseHandler.statusCode().is2xxSuccessful()) {
+                            ServerHttpResponse response = exchange.getResponse();
+                            response.setStatusCode(HttpStatus.FORBIDDEN);
+
+                            return response.setComplete();
+                        }
+
+                        return chain.filter(exchange);
+                    });
         }
 
         return chain.filter(exchange);
