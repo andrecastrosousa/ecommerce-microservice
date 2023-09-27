@@ -9,6 +9,6 @@ public class WebClientConfig {
 
     @Bean
     public WebClient webClient() {
-        return WebClient.create("lb://auth-service");
+        return WebClient.create("http://localhost:8082");
     }
 }
