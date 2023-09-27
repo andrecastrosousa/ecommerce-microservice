@@ -27,36 +27,22 @@ public class JwtAuthenticationFilter implements GatewayFilter {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
 
-        final List<String> apiEndpoints = List.of("/register", "/login");
+        final String authHeader = request.getHeaders().getOrEmpty("Authorization").get(0);
+        final String jwt = authHeader.substring(7);
 
-        Predicate<ServerHttpRequest> isApiSecured = r -> apiEndpoints.stream()
-                .noneMatch(uri -> r.getURI().getPath().contains(uri));
+        return webClient.get()
+                .uri("/token")
+                .header("Authorization", jwt)
+                .exchangeToMono(responseHandler -> {
+                    if(!responseHandler.statusCode().is2xxSuccessful()) {
+                        ServerHttpResponse response = exchange.getResponse();
+                        response.setStatusCode(HttpStatus.FORBIDDEN);
 
-        if (isApiSecured.test(request)) {
-            final String authHeader = request.getHeaders().getOrEmpty("Authorization").get(0);
-            if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
-                ServerHttpResponse response = exchange.getResponse();
-                response.setStatusCode(HttpStatus.UNAUTHORIZED);
+                        return response.setComplete();
+                    }
 
-                return response.setComplete();
-            }
-            final String jwt = authHeader.substring(7);
+                    return chain.filter(exchange);
+                });
 
-            return webClient.get()
-                    .uri("/token")
-                    .header("Authorization", jwt)
-                    .exchangeToMono(responseHandler -> {
-                        if(!responseHandler.statusCode().is2xxSuccessful()) {
-                            ServerHttpResponse response = exchange.getResponse();
-                            response.setStatusCode(HttpStatus.FORBIDDEN);
-
-                            return response.setComplete();
-                        }
-
-                        return chain.filter(exchange);
-                    });
-        }
-
-        return chain.filter(exchange);
     }
 }
