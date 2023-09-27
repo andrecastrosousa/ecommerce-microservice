@@ -8,9 +8,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class GatewayConfig {
+    private final JwtAuthenticationFilter filter;
 
     @Autowired
-    private JwtAuthenticationFilter filter;
+    GatewayConfig(JwtAuthenticationFilter filter) {
+        this.filter = filter;
+    }
 
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
