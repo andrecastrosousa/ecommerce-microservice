@@ -45,12 +45,6 @@ public class JwtAuthenticationFilter implements GatewayFilter {
             }
             final String jwt = authHeader.substring(7);
 
-            if(!jwtService.isTokenValid(jwt)) {
-                ServerHttpResponse response = exchange.getResponse();
-                response.setStatusCode(HttpStatus.FORBIDDEN);
-                return response.setComplete();
-            }
-
             return webClient.get()
                     .uri("/token")
                     .header("Authorization", jwt)
