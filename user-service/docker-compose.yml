@@ -6,3 +6,5 @@ services:
     environment:
       MYSQL_DATABASE: 'db'
       MYSQL_ROOT_PASSWORD: 123
+    networks:
+      - ecommerce-microservices
