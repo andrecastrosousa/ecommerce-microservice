@@ -3,7 +3,7 @@ name: Java CI
 on: [push]
 
 jobs:
-  build-auth-servicec:
+  auth-service:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,3 +13,36 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - run: cd auth-service && mvn --batch-mode --update-snapshots verify -DskipTests
+
+  catalog-service:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - run: cd catalog-service && mvn --batch-mode --update-snapshots verify -DskipTests
+
+  orders-service:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - run: cd orders-service && mvn --batch-mode --update-snapshots verify -DskipTests
+
+  user-service:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - run: cd user-service && mvn --batch-mode --update-snapshots verify -DskipTests
