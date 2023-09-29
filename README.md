@@ -38,6 +38,7 @@ The project utilizes the following technologies:
 - **Eureka**: For service discovery.
 - **API Gateway**: For routing and managing incoming HTTP requests to the appropriate microservices.
 - **Docker**: For containerization and managing dependencies.
+- **Github Actions**: For pipeline to try to build domain services.
 
 ## Getting Started
 To get started with the project, follow these steps:
