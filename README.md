@@ -8,6 +8,7 @@ The goal of this project is to learn how to build a fully-fledged microservices-
 - [Services](#services)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
+  - [Run Single Service](#run-single-service)
 - [Dockerization](#dockerization)
 - [Testing](#testing)
 - [License](#license)
@@ -49,15 +50,33 @@ To get started with the project, follow these steps:
 2. Navigate to the project directory:
     ```shell
     cd ecommerce-microservice
-3. Start the services, ensuring that dependencies like MongoDB, PostgreSQL, MySQL, RabbitMQ, and Eureka are up and running (Keycloak, RabbitMQ, Eureka, MySQL, MongoDB, PostgresSQL).
+3. Start the services, ensuring that dependencies like MongoDB, PostgreSQL, MySQL, RabbitMQ and Redis are up.
 
     using the following command:
     ```shell
    docker-compose up -d
 
-4. Configure Keycloak for authentication and authorization.
+4. Explore and interact with the services as needed for your ecommerce application.
+
+## Run Single Service
+1. Clone the repository to your local machine:
+    ```shell
+    git clone https://github.com/andrecastrosousa/ecommerce-microservice
+2. Navigate to the project directory:
+    ```shell
+    cd ecommerce-microservice
+3. Navigate to the service directory e.g order-service:
+    ```shell
+    cd order-service
+
+4. Start the service, ensuring that dependencies e.g order-service it will be PostgreSQL is up.
+
+   using the following command:
+    ```shell
+   docker-compose up -d
 
 5. Explore and interact with the services as needed for your ecommerce application.
+
 
 ## Dockerization
 This project leverages Docker to manage software dependencies. You can use the provided Docker Compose file to build and run containers for the required services, including databases, RabbitMQ, Eureka, Keycloak, MongoDB, and PostgreSQL. Refer to the project's Docker documentation for detailed instructions.
