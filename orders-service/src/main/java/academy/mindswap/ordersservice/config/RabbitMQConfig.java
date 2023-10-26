@@ -17,22 +17,22 @@ public class RabbitMQConfig {
     static final String QUEUE_NAME = "order-process";
 
     @Bean
-    Queue queue() {
+    public Queue queue() {
         return new Queue(QUEUE_NAME, false);
     }
 
     @Bean
-    TopicExchange exchange() {
+    public TopicExchange exchange() {
         return new TopicExchange(TOPIC_EXCHANGE_NAME);
     }
 
     @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
+    public Binding binding(Queue queue, TopicExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with("reduce.balance");
     }
 
     @Bean
-    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory) {
+    public SimpleMessageListenerContainer container(ConnectionFactory connectionFactory) {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
 

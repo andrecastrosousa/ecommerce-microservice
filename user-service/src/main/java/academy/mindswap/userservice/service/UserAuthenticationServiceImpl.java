@@ -49,7 +49,7 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
 
         tokenResponse.subscribe();
 
-        return null;
+        return userOptional.get();
     }
 
     @Override
