@@ -18,5 +18,6 @@ public class User {
     private String password;
     private String name;
     private double balance;
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
