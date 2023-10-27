@@ -18,7 +18,7 @@ public class Token implements Serializable, UserDetails {
     private String id;
     private String token;
     private String refreshToken;
-    private String role;
+    private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
